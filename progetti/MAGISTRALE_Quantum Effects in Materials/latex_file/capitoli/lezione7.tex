@@ -1,0 +1,79 @@
+\section{14/10/24}
+
+\subsection{[$\checkmark$] Continuazione effetto tunnel}
+
+The transmission coefficient is equal to the ratio between $\Psi$ before the wall and the $\Psi$ after the wall and it's equal to: $e^{-2\beta L}$
+
+\vspace{10pt}
+
+\noindent In the general case where there's a generic potential and not a well defined wall. The claim is that $\Psi(x) = \Psi(x_1) e^{-\int_{x_1}^{x}dx'K(x')}$ is an approx. solution to Schrodinger's equation.
+
+To do this we just need to check if $\Psi'(x) = -K(x)\Psi(x)$ and $\Psi''(x) = K^2(x)\Psi(x) - K'(x)\Psi(x)$.
+
+Whenever i can neglect the term $-K'\Psi$ with respect to $K^2\Psi''$, than the claim is true. This is named as WKB approximation.
+
+\vspace{10pt}
+\textit{Immagine sul caso generale della barriera.}
+\vspace{10pt}
+
+What does that mean? The smoother the potential varies, the more accurate we can approximate the tunnel effect.
+
+\paragraph{WKB approximation:} So what is the tunnelling rate is $t(E) = \frac{|\Psi(x_2)|^2}{|\Psi(x_1)|^2}$, so it's the exponential part: 
+
+$$e^{-2 \int_{x_1}^{x_2} dx \frac{\sqrt{2m(V(x) - E)}}  {\hbar}   }$$
+
+In the special case where $V(x) = V_0$ and $x_2-x_1=L$ then $t(E) = e^{-2 \frac{\sqrt{2m(V_0 -E)}}{\hbar}L}$
+
+\subsection{[$\checkmark$] APPLICATION 1: $\alpha$ - decay}
+
+\vspace{10pt}
+\textit{Immagine sul decadimento $\alpha$.}
+\vspace{10pt}
+
+Facciamo il calcolo, shall we?
+
+Definisco:
+
+$$t(E) = exp \left[ -2 \frac{\sqrt{2m}}{\hbar} \int_{x_1}^{x_2} dx \sqrt{V(x) - E} \right]$$
+
+$$m = m_{\alpha} \sim 4m_p$$
+$$x_1 = R$$
+$$x_2 = \frac{Z_1Z_2e^2}{4\pi\varepsilon_0 E} \longrightarrow V(x_2) = E$$
+$$\text{Max height of the potential } E_c = V(R) = \frac{Z_1Z_2e^2}{4\pi\varepsilon_0 R}$$
+
+$$\beta \equiv \frac{R}{\hbar} \sqrt{E_cm} = \left( \frac{Z_1Z_2 e^2 mR}{4\pi\varepsilon_0R} \right)^{1/2}$$
+
+Sostituendo:
+
+$$t(E) = exp \left[ -2\sqrt{2} \beta \int_{1}^{E_c/E} dy \left(\frac{1}{y} - \frac{E}{E_c}\right)^{1/2} \right]$$
+
+$$\text{if }E_c \gg E \rightarrow t(E) \sim exp \left[ -2\sqrt{2} \beta \left( \frac{\pi}{2} \sqrt{\frac{E_c}{E}} - 2  \right) \right]$$
+
+The mean lifetime of mother nucleous $\tau$ is $\propto \frac{1}{t(E)}$, meaning that $ln(\tau) \propto \alpha - ln(t(E))$.
+
+We also remember that:
+
+\begin{itemize}
+    \item $R \propto Z_1^{1/3}$
+    \item $E_c = \frac{Z_1}{R} = \frac{Z_1}{Z_1^{1/3}} = Z_1^{2/3}$
+\end{itemize}
+
+So we can conclude that:
+
+$$ \beta \propto R\sqrt{E_c} \propto Z_1^{1/3}Z_1^{1/3} = Z_1^{2/3} $$
+
+WHICH MEANS THAT: 
+
+$$ln(\tau) \propto \beta \left(\frac{\pi}{2} \sqrt{\frac{E_c}{E}} -2\right) \propto Z_1^{2/3} \left(\frac{\pi}{2}\frac{Z_1^{1/3}}{\sqrt{E}}-2\right)$$
+
+$$ln(\tau) \propto \left(\frac{Z_1}{E} - Z_1^{1/3}\right) \longrightarrow \text{Geiger - Nutall, 1928}$$
+
+This explains the fusion of an atom or the $\alpha$ - decay. (inverse processes), $\beta$ controls the energy required to fusion for example hydrogen. This is why they use light materials, to minimize $\beta$, diminuishing the energy required.
+
+\subsection{[$\checkmark$] APPLICATION 2: Cold emission of electrons}
+
+Considering for example a material like a metal.
+
+\vspace{10pt}
+\textit{Immagine sulla cold emission.}
+\vspace{10pt}

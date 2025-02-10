@@ -1,0 +1,113 @@
+\section{30/9/24}
+
+\subsection{[$\checkmark$] Introduction to quantum mechanic}
+
+\paragraph{Examples:} Transistors, LASERs, atomic clocks, NMR (medical), Quantum computers, Superconductors
+
+\paragraph{What led to discrepancies:} Before quantum mechanics, there was classical physics (electro-magnetism). The emission spectra put scientist in front of a problem that could not be explained called "Ultraviolet catastrophy"
+
+\paragraph{Formulas:} The emission lines for Hydrogen are discrete and obtained using: $\frac{1}{\lambda} = Ry \left( \frac{1}{m^2} - \frac{1}{n^2} \right)$ where $Ry = 11 * 10^6 \text{ m}^{-1}$ is the Rydberg constant.
+
+\paragraph{Duality of light:} Many experiments reveal that light is both a particle (photon) and a wave.
+
+\paragraph{Experiments we will analyze:} 
+\begin{itemize}
+	\item Double-slit experiment
+	\item Photoelectric effect
+\end{itemize}
+
+\hrulefill
+
+\subsection{[$\checkmark$] Maxwell's equation}
+
+\paragraph{Generic case of Wave equation in the void:} $$\frac{\partial^2}{\partial t^2} \vec{E} (\vec{r}, t) = c^2 \nabla ^ 2 \vec{E} (\vec{r}, t)$$
+
+\paragraph{Case 1D:} $$\frac{\partial^2}{\partial t^2} \vec{E} (x, t) = c^2 \frac{\partial^2}{\partial x^2} \vec{E} (x, t)$$ The general solution of a \textit{monochromatic wave} would be: $$E(x, t) = F(x-ct)+G(x+ct)$$ Where $F$ and $G$ are arbitrary functions describing a \textit{progressive wave} and \textit{regressive wave}. It is our interest to study a set of stationary waves, the periodic waves (signals). These are great because we can analyze them using Fourier's transform, obtaining something like: $$\text{A} \cos(kx - \omega t + \phi) = \text{A} \cos\left(k \left[x - \frac{\omega}{k}t\right] + \phi\right)$$ $$\text{A} \sin(kx - \omega t + \phi)$$ Where: 
+\begin{itemize}
+	\item k: wave number
+	\item $\omega$: angular frequency $\rightarrow \omega = \text{k} c$
+	\item $\phi$: phase shift 
+	\item $A$: amplitude of the wave
+\end{itemize} 
+
+\paragraph{Symbols you should remember:}
+\begin{itemize}
+	\item $\lambda$ : wavelenght (also equal to $\frac{2\pi}{k}$)
+	\item $\nu$ : frequency (also equal to $\frac{1}{T} = \frac{\omega}{2\pi}$)
+	\item T : time period
+\end{itemize}
+
+\paragraph{Superposition Principle:} If you have 2 solution (both true but with different wave numbers) that propagates with the same speed, we can sum them and obtain a correct solution. $|\vec{k}|c = \omega$ and $|\vec{k'}|c = \omega'$
+
+\paragraph{Interference:} If in a single point 2 waves collide, the result of their sum will generate interferences, which can be \textit{positive} or \textit{negative}.
+
+\hrulefill
+
+\paragraph{Useful notation:} Using complex numbers to represent monochromatic waves, like this: $$A e^{i (\vec{k} \vec{x} - \omega t + \phi)}$$ Remembering the Euler's formula: $$e^{i\alpha} = \cos(\alpha) + i \sin(\alpha)$$
+
+\subsection{[$\checkmark$] Interference}
+
+$$ A_1 * e^{i(\vec{k}\vec{x} - \omega t + \phi_1)} + A_2 * e^{i(\vec{k}\vec{x} - \omega t + \phi_2)} = A_{1 + 2} * e^{i(\vec{k}\vec{x} - \omega t + \phi_3)}$$
+
+To obtain $A_{1 + 2}$ we must solve $A^{2}_{1 + 2} = | A_1 e^{ia_1} + A_2 e^{ia_2} | ^ 2 = A^2_1 + A^2_2 + 2A_1A_2 \cos(a_2 - a_1)$
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.4\textwidth]{../images/diff_phase.png}
+    \caption{Plot of phase difference}
+    \label{fig:diff_phase}
+\end{figure}
+
+\subsection{[$\checkmark$] Double - slit experiment}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.8\textwidth]{../images/double_slit.png}
+	\caption{Double split experiment}
+	\label{fig:double_slit}
+\end{figure}
+
+Phase difference: $k (\Delta l)$ and $\Delta l = d \sin(\theta) = d \frac{x}{L}$.
+
+\vspace{10pt}
+
+Intensity: $|A_{1+2}|^2$ and $A_1^2 (2 + 2\cos(k\Delta l))$. This means that $I = A_1^2 (2 + 2\cos(k \frac{xd}{L}))$
+
+\subsection{[$\checkmark$] Photoelectric effect}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.33\textwidth]{../images/photoele_eff.png}
+	\caption{Photoelectric experiment}
+	\label{fig:photoele_eff}
+\end{figure}
+
+What is interesting is that it doesn't matter how much tension we apply or the intensity of light. Below a certain $\nu$ electrons are NOT extracted. 
+We must then assume that light is made of photons that are bound by the formula $E = h\nu$ where $h$ is known as Planck constant. Once it is reached then there's enough energy to extract an electron and separate it from its atom. This is known as the $W$ work function $\rightarrow h\nu \geq W$
+
+\vspace{10pt}
+
+The maximum energy of the photon will then be: $h\nu - W = E_{kin}$. In the experiment we can generate an electric field that generates an equal and opposite force ($eV_{stop} = E_{kin, max}$), to obtain the value of $E_{kin}$.
+
+\hrulefill
+
+We can then extract our result remembering that: $h\nu - W = E_{kin} = eV_{stop}$ and discover that the slope will always be the same equals to $h$, and the intercept is equal to $W$. Remember that $h$ is equal to: $6.626 * 10^{-34} \text{Js}$
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.6\textwidth]{../images/photo_func.png}
+	\caption{Photoelectric function result}
+	\label{fig:photo_func}
+\end{figure}
+
+\subsection{[$\checkmark$] Wave - Particle Duality}
+
+Particle momentum: $\frac{h\nu}{c} = \frac{h}{\lambda}$, since photons have no mass and move at speed of light: $E = |\vec{p}|c$.
+
+\vspace{10pt}
+
+Debroglie relation: $\vec{p} = \frac{h}{2\pi}\vec{k}$.
+
+\vspace{10pt}
+
+This informations, gives us everything we need to know for translating it into a wave equation: $$\Psi(\vec{r}, t) = A e^{i(\vec{k}{r} - \omega t + \phi)} = A e^{i\phi}e^{i(\frac{\vec{p}\vec{x} - Et}{\hbar})}$$

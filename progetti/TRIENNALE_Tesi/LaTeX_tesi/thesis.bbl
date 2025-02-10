@@ -1,0 +1,100 @@
+\begin{thebibliography}{10}
+
+\bibitem{Villarrubia}
+J.S. Villarrubia.
+\newblock Algorithms for scanned probe microscope image simulation, surface
+  reconstruction, and tip estimation.
+\newblock {\em Journal of Research of the National Institute of Standards and
+  Technology}, 102(4):425, July 1997.
+
+\bibitem{ribotta3}
+Roberto Bellotti, Gian~Bartolo Picotto, and Luigi Ribotta.
+\newblock {AFM} {Measurements} and {Tip} {Characterization} of {Nanoparticles}
+  with {Different} {Shapes}.
+\newblock {\em Nanomanufacturing and Metrology}, 5(2):127--138, June 2022.
+
+\bibitem{ribotta1}
+Gian~Bartolo Picotto, Marta Vallino, and Luigi Ribotta.
+\newblock Tip–sample characterization in the {AFM} study of a rod-shaped
+  nanostructure.
+\newblock {\em Measurement Science and Technology}, 31(8):084001, August 2020.
+
+\bibitem{ribotta2}
+Valter Maurino, Francesco Pellegrino, Gian~Bartolo Picotto, and Luigi Ribotta.
+\newblock Quantitative three-dimensional characterization of critical sizes of
+  non-spherical {TiO2} nanoparticles by using atomic force microscopy.
+\newblock {\em Ultramicroscopy}, 234:113480, April 2022.
+
+\bibitem{other_morphological}
+Shan Lou, Xiangqian Jiang, and Paul~J. Scott.
+\newblock Algorithms for morphological profile filters and their comparison.
+\newblock {\em Precision Engineering}, 36(3):414--423, July 2012.
+\newblock Number: 3.
+
+\bibitem{immagine_luigi}
+Pablo Fernandez~Garrillo.
+\newblock Development of highly resolved and photo-modulated kelvin probe
+  microscopy techniques for the study of photovoltaic systems.
+\newblock 09 2018.
+
+\bibitem{raycasting_ztest}
+Lode Vandevenne.
+\newblock Raycasting.
+
+\bibitem{GPU_language}
+David.
+\newblock {BEND} - {A} programming language for {GPUs} bringing acceleration
+  and paralysation, May 2024.
+
+\bibitem{raytracer1}
+Valérie Pineau~Noël, Shadi Masoumi, Elahe Parham, Gabriel Genest, Ludovick
+  Bégin, Marc-André Vigneault, and Daniel~C. Côté.
+\newblock Tools and tutorial on practical ray tracing for microscopy.
+\newblock {\em Neurophotonics}, 8(01), January 2021.
+
+\bibitem{raytracer2}
+Andrej Keksel, Samuel Schmidt, Dietrich Beck, and Jörg Seewig.
+\newblock Scientific modeling of optical 3d measuring devices based on
+  gpu-accelerated ray tracing using the nvidia optix engine.
+\newblock 08 2023.
+
+\bibitem{rasterization}
+Tom McREYNOLDS and David Blythe.
+\newblock Rasterization and {Fragment} {Processing}.
+\newblock In {\em Advanced {Graphics} {Programming} {Using} {OpenGL}}, pages
+  103--118. Elsevier, 2005.
+
+\bibitem{blender}
+Blender Foundation.
+\newblock blender.org - home of the blender project - free and open 3d creation
+  software.
+
+\bibitem{angleTIO2}
+Sumaiya~Islam Sadia, Md. Khalid~Hossain Shishir, Shanawaz Ahmed, Allah~Rakha
+  Aidid, Md.~Mynul Islam, Md.~Masud Rana, Sharif~Md. Al-Reza, and Md.~Ashraful
+  Alam.
+\newblock Crystallographic biography on nanocrystalline phase of polymorphs
+  titanium dioxide (tio2): A perspective static review.
+\newblock {\em South African Journal of Chemical Engineering}, 50:51--64, 2024.
+
+\bibitem{scanning_microscope}
+Andrew Yacoot and Ludger Koenders.
+\newblock Aspects of scanning force microscope probes and their effects on
+  dimensional measurement.
+\newblock {\em Journal of Physics D: Applied Physics}, 41(10):103001, May 2008.
+
+\bibitem{erosion_Minkowskische}
+H.~Hadwiger.
+\newblock Minkowskische {Addition} und {Subtraktion} beliebiger {Punktmengen}
+  und die {Theoreme} von {Erhard} {Schmidt}.
+\newblock {\em Mathematische Zeitschrift}, 53(3):210--218, June 1950.
+
+\bibitem{scarano}
+Rosangela Santalucia, Paolo Negro, Tiziano Vacca, Francesco Pellegrino,
+  Alessandro Damin, Federico Cesano, and Domenica Scarano.
+\newblock In {Situ} {Assembly} of {Well}-{Defined} {MoS2} {Slabs} on
+  {Shape}-{Tailored} {Anatase} {TiO2} {Nanostructures}: {Heterojunctions}
+  {Role} in {Phenol} {Photodegradation}.
+\newblock {\em Catalysts}, 12(11):1414, November 2022.
+
+\end{thebibliography}

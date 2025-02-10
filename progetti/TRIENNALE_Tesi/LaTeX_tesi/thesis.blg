@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+Reallocating 'name_of_file' (item size: 1) to 28 items.
+A level-1 auxiliary file: ./capitoli/introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: ./capitoli/afm_details.aux
+Reallocating 'name_of_file' (item size: 1) to 36 items.
+A level-1 auxiliary file: ./capitoli/structure_generation.aux
+Reallocating 'name_of_file' (item size: 1) to 33 items.
+A level-1 auxiliary file: ./capitoli/structure_fitting.aux
+Reallocating 'name_of_file' (item size: 1) to 34 items.
+A level-1 auxiliary file: ./capitoli/tip_reconstruction.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: ./capitoli/conclusions.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: unsrt.bst
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+Database file #1: thesis.bib
+Warning--empty journal in immagine_luigi
+Warning--empty journal in raytracer2
+You've used 16 entries,
+            1791 wiz_defined-function locations,
+            554 strings with 6898 characters,
+and the built_in function-call counts, 3434 in all, are:
+= -- 278
+> -- 173
+< -- 1
++ -- 65
+- -- 49
+* -- 259
+:= -- 564
+add.period$ -- 47
+call.type$ -- 16
+change.case$ -- 16
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 142
+empty$ -- 338
+format.name$ -- 49
+if$ -- 742
+int.to.chr$ -- 0
+int.to.str$ -- 16
+missing$ -- 13
+newline$ -- 81
+num.names$ -- 16
+pop$ -- 42
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 70
+stack$ -- 0
+substring$ -- 197
+swap$ -- 23
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 31
+width$ -- 18
+write$ -- 166
+(There were 2 warnings)

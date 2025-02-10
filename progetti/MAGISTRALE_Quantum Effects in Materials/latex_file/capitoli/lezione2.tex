@@ -1,0 +1,110 @@
+\section{2/10/24}
+
+\subsection{[$\checkmark$] Ripasso eq. Schr\"{o}dinger}
+
+From last time we can change the $(\vec{k}\vec{r} - Et)$ into $(\vec{p}\vec{r} - Et) / \hbar$ from de Broglie relations.
+
+So what about particles that moves much slower than the speed of light and consequentely have mass?
+
+$$ E = \frac{1}{2} mv^2$$
+%
+Considering that $\vec{v} = \frac{\vec{p}}{m}$ we can rewrite the previous formula as:
+
+$$ E = \frac{(\vec{p})^2}{2m} $$
+%
+If we then consider that $E = \hbar \omega$ since $\vec{p} = \hbar \vec{k}$, we can write what is now called a "Matter Wave":
+
+$$ \Psi_{p} (\vec{r}, t) = Ae^{i \left( \frac{\vec{p}\vec{x} - Et}{\hbar} \right)} $$
+%
+Where the terms of energy and momentum are the formulas described for the matter equations.
+
+Il prof. spiega roba in maniera non estremamente chiara, per il ripassone, leggi il PDF di Uccirati.
+
+\hrulefill
+\begin{itemize}
+
+    \item Linear operator $\longrightarrow$ is something that operates in a linear way towards a function (taking a derivative, or multiplying by a certain factor)
+    \item Wave packet $\longrightarrow$ is a group of superposed waves which together form a travelling localized disturbance, especially one described by Schr\"{o}dinger's equation and regarded as representing a particle
+    \item Probability density $\longrightarrow$ is the formula ($|\Psi(\vec{r},t)|^2$) that determines the probability to find a particle in a position $\vec{r}$ at the time $t$. In all the universe this equals to 1.
+\end{itemize}
+
+\subsubsection{Regole interessanti}
+
+\begin{itemize}
+    \item 2 waves which differ only by the phase, represent the SAME state ($|x|^2$)
+    \item If we check that a wave is valid at a certain time, it will be valid for any time.
+\end{itemize}
+
+\subsection{[$\checkmark$] Course objectives}
+
+\subsubsection{Complex vectors} 
+
+Complex vectors can be:
+
+\begin{itemize}
+    \item vertical "KET" and symbolized with $\ket{v}$, and it's easy to immagine them as a column vector.
+    \item horizontal "BRA" and symbolized with $\bra{v}$, and it's easy to immagine them as a row vector of the complex conjugate.
+    \item the combination (BRAKET): $\braket{w|v}$ is a scalar product (dot).
+\end{itemize}
+
+\subsubsection{Dagger}
+
+$\bra{v} = (\ket{v})^{\dagger}$ which is the simple term for "Hermitian Conjugation transpose \& compl. conjugation".
+The $\sqrt{\braket{v|v}}$ equals to taking the norm, such as $\braket{\Psi|\Psi} = 1$
+
+\subsubsection{Orhonormal basis}
+
+Are a set of basis such as $\braket{i|j} = \delta_{ij}$ such as it is equal to 1 if $i = j$ or 0 if $i\neq j$. This means that the components $v_i$ is given by $v_i = \braket{i|v}$ 
+
+\subsubsection{Hilbert space}
+
+It is a complex vector space with a complex scalar product, with some rules:
+
+\begin{itemize}
+    \item States of quantum system are vectors in a Hilbert space with unit norm. $\ket{\Psi}$ and $\ket{\Psi}e^{i\phi}$ represent \underline{SAME} state.
+    \item This means that $\hat{A}$ applied to $\ket{v}$ is equal to $\hat{A}\ket{v}$ and also $\hat{A}(a\ket{v} + b\ket{w}) = a\hat{A}\ket{v} + b\hat{A}\ket{w}$
+    \item Note that $\hat{A}$ can be represented by a matrix. So an equivalent writing should be $\braket{i|\hat{A}|j} \equiv A_{ij}$
+    \item $\hat{A}$ is hermitian if $\hat{A} = \hat{A}^{\dagger}$ and $(A^{\dagger})_{ij} = (A_{ji})^*$
+\end{itemize}
+
+\subsubsection{Hermitian operators properties}
+
+\begin{itemize}
+    \item Diagonalizable: $\hat{A} \ket{e_i} = \lambda_i \ket{e_i}$ where $\ket{e_i}$ is an eigenvector and $\lambda_i$ is an eigenvalues
+    \item Can choose an orthon basis of eigenvalues.
+    \item There's a proof that the eigenvalues are Real numbers.
+\end{itemize}
+
+\subsection{[X] Exercise}
+
+$\ket{1}$ = (0 1)
+$\ket{2}$ = (1 0)
+
+\begin{itemize}
+    \item Verify that $\ket{1}$ and $\ket{2}$ form an orthonormal basis
+\end{itemize}
+
+\hrulefill
+
+$$\ket{1} = \begin{bmatrix} 1 \\ i \\ \end{bmatrix}  \frac{1}{\sqrt{2}}$$
+
+$$\ket{2} = \begin{bmatrix} 1 \\ -i \\ \end{bmatrix} \frac{1}{\sqrt{2}}$$
+
+\begin{itemize}
+    \item Verify that $\ket{1}$ and $\ket{2}$ form an orthonormal basis
+\end{itemize}
+
+\hrulefill
+
+\begin{itemize}
+    \item Write $\ket{v} = \begin{bmatrix} 5+i \\ 7-i \\ \end{bmatrix}$ as $\ket{v} = v_1\ket{1} + v_2\ket{2}$ and $\ket{v} = v_1'\ket{1'} + v_2'\ket{2'}$
+\end{itemize}
+
+\hrulefill
+
+\begin{itemize}
+    \item Given this: $\hat{A}\ket{1} = \ket{2}$
+    \item And this: $\hat{A}\ket{2} = \ket{1}$
+    \item Write $\hat{A}$ as a matrix
+\end{itemize}
+

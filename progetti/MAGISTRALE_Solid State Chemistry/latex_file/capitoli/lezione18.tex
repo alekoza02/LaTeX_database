@@ -1,0 +1,28 @@
+\section{02/12/24}
+
+\subsection{[$\checkmark$] LABORATORIO giorno 3 (2/12/24)}
+
+\subsubsection{Theory UV-Vis: }
+
+The instrument has a range of (800-200 [nm]), this covers completely the visible spectrum and a portion of UV and NIR. 
+
+The reason we used the tool in reflectance mode is beacause our sample was not transperent since it was a powder.
+
+We could have created a liquid solution to use the absorbance mode, but it would have altered the crystalline structure.
+
+The objective of this measurement was to obtain the value of the energy gap.
+
+The issue is that reflectance cannot be directly used instead of the absorbtion. Using the Kubelka-Munk function we can transform the reflectance into a function that is directly proportional to the absorbance.
+
+Here's the formula: 
+
+$$\frac{K(\lambda)}{S(\lambda)} = \frac{(1-R_{\infty})^2}{2R_{\infty}}$$
+
+From here we will have to transform the absorbance into a Tauc plot, which will enhance the precision in obtaining the value of the energy gap. Essentially we raise the whole function to a power, which depends on the the type of the energy gap (direct - indirect) and if it's prohibited or not.
+
+We think that it is a prohibited band gap transition because from the DOS map we see a transition from the 2p orbitals of the O and Br to the 6p of Bi. This means that the there's no change in the l quantum number and therefore it's prohibited. But, at the end, it's still allowed by other factors that "soften" the selection rule. 
+
+
+So, the BiOBr is a \textbf{INDIRECT} and \textbf{ALLOWED} energy gap. Which means that to obtain the final value we'll have to "correct" the Kubelka-Munk with this formula:
+
+$$(F(R)h\nu)^{\frac{1}{2}}\propto h\nu - E_{gap}$$

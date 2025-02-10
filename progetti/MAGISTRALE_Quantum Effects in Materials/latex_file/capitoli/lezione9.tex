@@ -1,0 +1,51 @@
+\section{21/10/24}
+
+\subsection{[$\checkmark$] Periodic $\delta$ - Potential (Kronig - Penney)}
+\subsubsection{Math base model: }
+
+Starting with:
+$$V(x) = -LV_0\sum_{n=-\infty}^{\infty} \delta (x - nL)$$
+
+\noindent We want to find the states of the electron with positive energy $E > 0$, so:
+$$(n-1)L < x < nL \longrightarrow \Psi_n'' = - \frac{2mE}{\hbar^2}\Psi_n$$
+
+$$\Psi_n(x) = a_ne^{ikx} + b_ne^{-ikx} \text{ with } K = \sqrt{2mE / \hbar}$$
+
+\noindent This means that increasing $n$ nothing changes, because it is periodic. This helps us, because we only care resolving the equation in a limited range $(L)$.
+
+\vspace{10pt}
+
+\noindent Introducing: $\Theta (a < x < b)$, \textit{(Immagine di una funzione quadra, ovvero tutti 0 fuori dal range e 1 nel range)}
+
+$$\Psi(x) = \sum_{n=-\infty}^{\infty} \Psi_n(x) \Theta ((n-1)L < x < nL)$$
+
+\noindent Which means that the $V(x+L) = V(x)$ and $|\Psi(x+L)|^2 = |\Psi(x)|^2$. We can write the most general equation as $\Psi(x+L) = e^{i\alpha}\Psi(x)$
+
+\vspace{10pt}
+\noindent We can combine the functions by rewriting one range in function of the other, so we can substitute the 2 expression with each other. Fa un sacco di trucchetti continuando a cambiare nome tra $i$, $j$ e $n$ fino ad arrivare a: 
+
+$$\Psi(x+L) = \sum_{n=-\infty}^{\infty} \Psi_{n+1}(x+L)\Theta((n-1)L < x < nL)$$
+
+\noindent To conlcude we can rewrite the original $\Psi$ in using the progressive and regressive wave with the increasing coefficients.
+
+$$\Psi_n(x + L) = a_ne^{ikx}e^{ikL} + b_ne^{-ikx}e^{-ikL} $$
+
+\subsubsection{Physics impositions: } Continuity in $x = nL \rightarrow \Psi_n(nL) = \Psi_{n+1}(nL) \rightarrow (a_n - a_{n+1})e^{iknL} = (b_{n+1} -b_n)e^{-iknL}$.
+
+\vspace{10pt}
+
+\noindent Remember that there's the periodicity, continuity of $\Psi$ and discontinuity of $\Psi'$.
+
+\subsubsection{The final agglomerate:}
+
+$$ \cos(\alpha) = \cos(KL) - \frac{mV_0L}{K\hbar^2} \sin(KL) $$
+
+\section{[$\checkmark$] (INTRO) Angular momentum $\lambda$}
+
+It is usually a vector: $$\vec{L} = \hat{\vec{x}} \times \hat{\vec{p}} \rightarrow -i\hbar \vec{x} \times  \vec{\nabla} = L_x \text{ for example: } -i\hbar \left( y\frac{\partial}{\partial z} - z\frac{\partial}{\partial y} \right) $$
+
+$$ \left[ \vec{x}_i, \vec{p}_j \right] = i\hbar\delta_{i,j} \rightarrow \left[ L_x, L_y \right] = i\hbar L_z $$
+
+\noindent We can also verify that:
+
+$$\left[ L_i, \hat{\vec{x}}^2 \right] = \left[ L_i, \hat{\vec{p}}^2 \right] = \left[ L_i, \vec{L}^2 \right] = 0$$

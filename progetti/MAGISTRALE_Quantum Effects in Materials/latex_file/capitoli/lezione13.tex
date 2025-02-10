@@ -1,0 +1,51 @@
+\section{4/11/24}
+
+\section{[$\checkmark$] Addition of angular momentum}
+
+We can consider a binary system of $e^-$, where the spins are commutable $[S_{1i}, S_{2j}] = 0$. This means they are indipendent and can be measured together. We can define $\vec{S} = \vec{S_1} + \vec{S_2}$ (total spin of the system), and we want to find the state that satisfies $S^2 \ket{S, M} = \hbar^2 S(S+1)\ket{S,M}$ and $S_Z \ket{S, M} = \hbar M \ket{S,M}$.
+
+\vspace{10pt}
+
+\noindent For starters we only have the states of the single electrons indipendent from each other (the 4 combinations of states of the electron) $\ket{++} (\ket{+}\ket{+}), \ket{+-}, \ket{-+}, \ket{--}$, and we want to build $\ket{S, M}$ as combinations of the previous 4 possibilities.
+
+\vspace{10pt}
+
+\noindent We can say that $S^2$ commutes with $S_1^2$, $S_2^2$ and $S_Z$ but not with $S_{1Z}$ and $S_{2Z}$, so they are not a good set of basis (the 4 combinations), because they do not commute, so we can't describe one using the other.
+
+\vspace{10pt}
+
+\noindent We now should try to understand the action of $S_Z$ on $\ket{++} \dots \ket{--}$ and $$S_Z\ket{++} = (S_{1Z}\ket{+})\ket{+} + \ket{+}(S_{2Z} \ket{+})$$ $$\left(\frac{\hbar}{2}\ket{+}\right) \ket{+} + \ket{+} \left(\frac{\hbar}{2} \ket{+}\right) = \hbar\ket{++}$$ 
+This means that $S_Z$ can commute and reppresent all the states correctly. It will be now our new basis (all the 4 combinations are eigen values of $S_Z$). Let's check if we can compute $S^2$ with this setup by computing the action of $S^2$ on $\ket{++}$:
+
+$$ S^2 = S_1^2 + S_2^2 + 2S_{1X}S_{2X} + 2S_{1Y}S_{2Y} $$
+
+\noindent Where we use the $S_{1\pm} = S_{1X} \pm iS_{1Y}$ (Ladder operator).
+
+\noindent Let's start computing:
+$$ S^2\ket{+-} = (S_1^2\ket{+})\ket{-} + \ket{+}(S_2^2\ket{-}) $$
+
+\textit{Soluzione nelle dispense, in pratica espande l'equazione ed elimina molti termini (L'operatore S+ va ad aumentare di uno stato lo spin, ma se lo applico a spin UP il risultato è 0 eliminando il termine). Poi a prendere roba fatta prima:} $S_{\pm} \ket{s, m}$ \textit{risolve tutto ed ottiene:} $$S^2\ket{+-} = \hbar^2(\ket{+-} + \ket{-+})$$ Which is NOT and eigenstate, since it uses 2 different basis. This is because $S^2$ do NOT commute with $S_Z$.
+
+\vspace{10pt}
+
+\noindent \textbf{We then find that}: $$\ket{++} \equiv \ket{S=1, M=1}$$ $$\ket{--} \equiv \ket{S=1, M=-1}$$ This means that i can find the value of one basis set (S=1, M=0, ecc.) in terms of another basis set (++, --, ecc.), finding the value of all the others combinations.
+
+\vspace{10pt}
+
+\noindent To check if everything works: $S^2[...] = 2\hbar^2[...]$ and $S_Z[...] = 0$ and you should see that everything is proportional and written in terms of one base (eigen - something).
+
+\vspace{10pt}
+
+\noindent \textbf{We then find that}: $$\frac{1}{\sqrt{2}}(\ket{+-} + \ket{-+}) \equiv \ket{S=1, M=0}$$
+
+\vspace{10pt}
+
+\noindent And now for the last one: we must engineer the coefficients of the other 3 solutions to create a 4th solution orthogonal to all the others. Which is: $$\frac{1}{\sqrt{2}}(\ket{+-}-\ket{-+}) \rightarrow \ket{S=0, M=0}$$ Which is spin singlet, while the other 3 are the spin triplet.
+
+\subsection{Sum of $\vec{L}$ and $\vec{S}$}
+
+Consider $\vec{J} = \vec{L} + \vec{S}$ and let's contrusct a basis $\ket{J,M}$ such that $\vec{J}^2\ket{J, M} = \hbar^2J(J+1)\ket{J,M}$ and $J_Z\ket{J,M}=\hbar M\ket{J,M}$.
+
+\vspace{10pt}
+
+\noindent As a starting point let's use $\ket{l,m}$ basis for $\vec{L}^2$ and $L_Z$ and $\ket{+-}$ as a basis for $\vec{S}^2$ and $S_Z$. So we now start from $\ket{l,m,+}$ and $\ket{l,m,-}$.

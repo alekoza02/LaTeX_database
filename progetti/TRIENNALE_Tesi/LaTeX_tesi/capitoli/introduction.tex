@@ -1,0 +1,21 @@
+\chapter{Introduction}
+
+\section{Overview}
+
+Nanometrology covers a wide range of techniques for the characterization and measurement of different kinds of materials at the nanometric scale. Atomic Force Microscope (AFM) is a widely used technique to measure 3D topographies at the nanoscale. The obtained AFM images are the results of the interaction of the sample with the tip.
+
+The AFM techniques can achieve sub-nanometer resolution and accuracy along z direction (height measurements). On the contrary, the AFM lateral resolution (x and y directions) is strongly affected by the tip shape contribution. For this reason, a preliminar tip reconstruction before the data analysis is crucial. Nowadays, several AFM tip reconstruction methods are shown in literature, that are based on two main approaches for in situ characterisation, \textit{i.e.} the \textit{blind reconstruction} and the \textit{known tip characteriser techniques}.
+
+\paragraph{Blind reconstruction:} the sample measured has a very rough surface (tip check) and no prior knowledge is required to perform the algorithm proposed by Villarrubia in 1997 \cite{Villarrubia}. The idea is to reconstruct the tip based on the wide variety of slopes in the sample. These allow us to get an idea of how well the tip can resolve vertical structures, thus indirectly obtaining the smallest possible shape that will contain the real tip.
+
+
+\paragraph{Known tip characteriser:} the sample measured is a nanostructure with well-known dimensional parameters, that are then used in the reconstruction algorithm \cite{ribotta3}. Using a morphological filter, as further explained in section [9], we can trace the movement of a geometric object in space as if it rolled beneath a given surface. The obtained movement can be combined into a single object that is the actual shape of the real AFM tip. This explains why it is very important to have a faithful reconstruction of the nanostructure.
+
+
+\section{Objective}
+
+The known tip characteriser will be the approach studied in this work. In particular, we generalize the geometrical approach for the tip shape reconstruction method presented by Ribotta \textit{et al.} \cite{ribotta1,ribotta2,other_morphological} to any ideal structure, and we implement routines for the procedural generation of height maps with multiple tip characterisers. Our goal is to create a Python module that helps generating the ideal topography of the tip characteriser and, consequently, allows to reconstruct the tip shape by "eroding" the real measurement with the generated structure.
+
+\vspace{10pt}
+
+Fast and reliable generation of this ideal sample is not trivial and cannot be easily done by mathematic modelling of the nanostructures. The \textit{ray traced} approach allows to generate multiple models of the expected size and orientation and, consequently, to analyze them by means of image recognition algorithm. Finally, this allows to proceed with the eroding algorithm.

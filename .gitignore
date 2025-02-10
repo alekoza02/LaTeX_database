@@ -1,0 +1,15 @@
+# Ignore blender autosaves
+*.blend1
+
+# Ignore LaTeX helper files
+*.aux
+*.fdb_latexmk
+*.log
+*.gz
+*.gz.sum.synctex
+*.toc
+*.fls
+*(busy)
+
+# Ignore Office data
+~*

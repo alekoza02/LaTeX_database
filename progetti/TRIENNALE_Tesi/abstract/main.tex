@@ -1,0 +1,25 @@
+\documentclass{article}
+
+\begin{document}
+
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+    Nanometrology covers a wide range of techniques for the characterization and measurement of different kind of materials at the nanoscale. In particular, Atomic Force Microscope (AFM) is a widely used technique to measure 3D topographies at the nanoscale. AFM images are due to the convolution of the sample shape, the tip shape and the tip-sample-substrate interactions. While AFM height measurements can achieve sub-nanometer resolution and accuracy, lateral resolution is influenced by several factors, the most impacting is the tip shape, which must be reconstructed before analysing the collected data. Several methods for AFM tip reconstruction are presented in literature, which can be divided into two main approaches for \textit{in situ} characterisation, which are blind reconstruction and known tip characteriser techniques.
+
+    In this work, I generalize the geometrical approach for tip shape reconstruction presented by Ribotta to any ideal structure, and I implement routines for the procedural generation of height maps with multiple tip characterisers. My goal is to create a Python module that helps generating the ideal topography of the tip characteriser, and then reconstructs the tip shape by eroding the real measurement with the generated structure.
+
+    Fast and reliable generation of this ideal sample is not trivial and cannot be done easily by mathematically modelling the nanostructures. By using the ray traced approach implemented, it is possible to generate multiple models of the expected size and orientation, and analyze them using a image recognition algorithm to fit the ideal structrures under the measured data.
+\end{abstract}
+
+\newpage
+
+\renewcommand{\abstractname}{Riassunto}
+\begin{abstract}
+    La nanometrologia comprende una vasta gamma di tecniche per la caratterizzazione e la misurazione di diversi tipi di materiali a livello nanometrico. In particolare, i Microscopi a Forza Atomica (AFM) sono molto diffusi nella misura di topografie tridimensionali a livello nanomentrico. Le immagini prodotte dall'AFM devono essere convolute per poter essere utilizzabili, questo è dovuto a diversi fattori. Le misure lungo l'asse Z hanno un margine di errore sub-nanometrico, mentre la risoluzione spaziale può essere influenzata da diversi fattori, di cui il più importante è la forma della punta, la quale deve essere ricostruita prima di analizzare i dati raccolti. Diversi metodi per la ricostruzione della punta dell'AFM sono presentati in letteratura, e possono essere suddivisi in due approcci principali per la caratterizzazione \textit{in situ}: le tecniche di ricostruzione blind e le tecniche di caratterizzazione della punta con elementi a geometria nota.
+
+    In questo lavoro, generalizzo l'approccio geometrico presentato da Ribotta a qualsiasi struttura ideale, e implemento routine per la generazione procedurale di mappe di altezza con nanopacelle a geometria varia. L'obiettivo è creare un modulo Python che aiuti a generare la topografia ideale della nanoparticella, e successivamente ricostruire la forma della punta erodendo la misurazione reale con la struttura generata.
+
+    La generazione rapida e affidabile di questo campione ideale non è banale e non può essere facilmente realizzata modellando matematicamente le nanostrutture; con l'approccio del ray tracer implementato è possibile generare più modelli delle dimensioni e dell'orientamento attesi, e analizzarli utilizzando un algoritmo di riconoscimento delle immagini per adattare le strutture ideali ai dati misurati.
+\end{abstract}
+
+\end{document}

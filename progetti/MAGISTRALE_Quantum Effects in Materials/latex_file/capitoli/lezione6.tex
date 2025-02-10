@@ -1,0 +1,44 @@
+\section{11/10/24 TUTORATO}
+
+\subsection{[$\checkmark$] Esercizio 1}
+
+Given $\ket{e_1} = \begin{bmatrix} 1 \\ 0 \\ \end{bmatrix}$ and $\ket{e_2} = \begin{bmatrix} 0 \\ 1 \\ \end{bmatrix}$
+
+$$\vec{e_1}^{\dagger} \vec{e_2} = [1 \text{ } 0] \begin{bmatrix} 0 \\ 1 \\ \end{bmatrix} = 0 + 0 = 0$$
+
+$$|\vec{e_1}|^2 = \braket{e_1|e_1} = [1 \text{ } 0] \begin{bmatrix} 1 \\ 0 \\ \end{bmatrix} = 1 + 0 = 1$$
+
+The most important thing to remember is $\braket{e_i|e_j} = \delta_{ij}$
+
+\subsection{[$\checkmark$] Esercizio 2}
+
+Given $\ket{e_1} = \begin{bmatrix} 1 \\ i \\ \end{bmatrix}  \frac{1}{\sqrt{2}}$ and $\ket{e_2} = \begin{bmatrix} 1 \\ -i \\ \end{bmatrix} \frac{1}{\sqrt{2}}$
+
+$$\braket{e_1|e_2} = \frac{1}{2} [1 \text{ } -i] \begin{bmatrix} 1 \\ -i \\ \end{bmatrix} = \frac{1}{2}(1+i^2) = 0$$
+
+The reason for $[1 \text{ } -i]$ is caused bu the complex conjugate.
+
+$$|\vec{e_1}|^2 = \braket{e_1|e_1} = \frac{1}{2} [1 \text{ } -i] \begin{bmatrix} 1 \\ i \\ \end{bmatrix} = \frac{1}{2} (1-i^2) = 1$$
+
+\subsection{[$\checkmark$] Esercizio 3}
+
+Write $\ket{v} = \begin{bmatrix} 5+i \\ 7-i \\ \end{bmatrix}$ as components of $\ket{e_1} = \begin{bmatrix} 1 \\ 0 \\ \end{bmatrix}$ and $\ket{e_2} = \begin{bmatrix} 0 \\ 1 \\ \end{bmatrix}$
+\\\\
+$\braket{e_1|v} = v_1 \text{ and } \braket{e_2|v} = v_2$ is used to obtain components $v_1$ and $v_2$.
+
+\subsection{[$\checkmark$] Esercizio 4}
+
+\begin{itemize}
+    \item Given this: $\hat{A}\ket{1} = \ket{2}$
+    \item And this: $\hat{A}\ket{2} = \ket{1}$
+    \item Write $\hat{A}$ as a matrix
+    \item Prove it's Hermitian
+\end{itemize}
+
+
+$A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \\ \end{bmatrix}$, and it's obtained by stacking the vectors horizontally to prove it's Hermitian you need to take the ``\textit{Trasposta}" it and taking the complex conjugate.
+
+
+\subsection{[$\checkmark$] Esercizio 5}
+
+Prove that $\braket{\Psi | \Delta \hat{x}^2 | \Psi} = \braket{\Psi | \Delta x^2 | \Psi} - \braket{\Psi | \Delta \hat{x} | \Psi}$: DONE (Maybe).

@@ -1,0 +1,47 @@
+\section{17/10/24}
+
+\subsection{[$\checkmark$] Continuazione effetto tunnel 2}
+
+\paragraph{Calculation tunnelling rate in WKB approx. (case cold emission):}
+
+$$t(E) = exp \left[ -2 \int_{x_1}^{x_2} dx \frac{\sqrt{sm(V(x) - E)}}{\hbar} \right]$$
+
+Where $x_2$ is obtained in such a way that $\Phi + E - |e|\varepsilon x_2 = E \rightarrow x_2 = \frac{\Phi}{|e|\varepsilon}$.
+
+\vspace{10pt}
+
+\noindent We finally obtain: $t(E) = exp \left[ -\frac{4\sqrt 2}{3} \sqrt m \frac{\Phi^{\frac{3}{2}}}{\hbar |e| \varepsilon} \right]$. Remember that $\Phi$ is the work function.
+
+\vspace{10pt}
+
+\paragraph{}{Conclusions:} Given $\varepsilon$ we obtain that when $\varepsilon$ goes to 0 there's no probability of tunnelling. When $\varepsilon$ goes to $\infty$, the $t(E)$ is 1 (probability of 100\%).
+
+\subsection{[$\checkmark$] Scanning Tunnelling Microscope (STM)}
+
+\vspace{10pt}
+\textit{Immagine sulla STM.}
+\vspace{10pt}
+
+\subsection{[$\checkmark$] Potential Well (UCCIRATI)}
+
+\paragraph{We start by defining what happens in the region with 0 potential and $V_0$ potential. } 
+
+\begin{itemize}
+    \item $\Psi'' = -\frac{2m}{\hbar^2}E\Psi$ namely $-\frac{2m}{\hbar^2}E \equiv K^2$
+    \item $\Psi'' = \frac{2m}{\hbar^2}(V_0 -E)\Psi$ namely $-\frac{2m}{\hbar^2}(V_0 -E) \equiv g^2$
+\end{itemize}
+
+\paragraph{Since:} $V(x) = V(-x)$ and $|\Psi(x)|^2 = |\Psi(-x)|^2$ so $\Psi(x) = \pm \Psi(-x)$, so we are look onoly for even or odd functions (sins and cosines).
+
+\paragraph{Even function inside:} $|x| \leq L/2 \rightarrow \Psi^{even}(x) = Acos(kx)$ we can write it like that because it's a real exponent and we take only the even part
+\paragraph{Even function outside:} $|x| > L/2 \rightarrow \Psi^{even}(x) = B e^{-g|x|}$ here we report the even part but from the general form ($\Psi = Ae^{gx} + Be^{-gx}$) \textit{Consideriamo la parte negativa, perchè delle 2 possibili soluzioni è l'unica che rispetta le condizioni al contorno (non FUCKING esplodere all'$\infty$).}
+
+\paragraph{Continuity:} $\Psi$ and $\Psi'$ continuous at $x=\pm L/2$ so $$A\cos\left(K\frac{L}{2}\right) = Be^{-gL/2} \text{ For }\Psi$$
+$$AK\cos\left(K\frac{L}{2}\right) = -gBe^{-gL/2} \text{ For }\Psi'$$
+
+Their ratio equals to: $-K\tan\left(KL/2\right) = -g \rightarrow \tan\left(KL/2\right) = g/K$. This means that this term $\zeta$ DOESN'T depend on the E: $\frac{\sqrt{\zeta^2 - (KL/2)^2}}{(KL/2)}$, so only certain values of E depending on K (quantization of energy). The number of intersections depend on $\zeta$, which depends on the $V_0$. ($\zeta = \frac{\sqrt{2mV_0} L}{2\hbar}$).
+
+\subsection{[$\checkmark$] Potential Well (Case with $\infty$ wall) (UCCIRATI)}
+\subsection{[$\checkmark$] Potential Well (Case with 3D) (UCCIRATI)}
+\subsection{[$\checkmark$] Kroenig - Penney}
+

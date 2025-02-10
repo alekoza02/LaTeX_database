@@ -1,0 +1,99 @@
+\section{9/10/24}
+
+\subsection{[$\checkmark$] Operators and uncertanty}
+
+The operators might or might not commute, this can occour only if the operators commute: $[A, B] = AB - BA \rightarrow [\hat{\vec{x}}, \hat{\vec{p}}] = 0$. Let's try it.
+
+\paragraph{Example 1D: } $$\left[x, p_x\right]f(x) = \left[x, -i\hbar \frac{\partial}{\partial x}\right]f(x) = x\left(-i\hbar \frac{\partial f}{\partial x}\right) - \left(-i\hbar \frac{\partial}{\partial x} (xf)\right) = i\hbar x \frac{\partial f}{\partial x} - \left[- i\hbar f-i\hbar x\frac{\partial f}{\partial x}\right] = i\hbar f$$
+%
+This is true for all $f$. Where $A = x$ and $B = \left(-i\hbar \frac{\partial}{\partial x}\right)$
+
+\paragraph{2D case:} Remember that when using more variables ($x, y$) you need to remember that when applying $\frac{\partial}{\partial y}$ on position $x$ it doesn't interfere therefore it \textbf{COMMUTE}, otherwise it does not. This means that 2 operators can commute when they are linearly indipendent. Physically it means that you can measure 2 different attributes together. Also known as the \textit{Canonical Commutation Relations}:
+
+$$[\hat{x_i}, \hat{p_j}] = i\hbar \text{ I } \delta_{ij}$$
+
+\paragraph{Heisenberg's uncertanty principle and the consequences of $[\hat{x}, \hat{p_x}] \neq 0$: } Let's introduce 2 operators:
+
+\begin{itemize}
+    \item $\Delta\hat{x} \equiv \hat{x} - \braket{\Psi | \hat{x} | \Psi}$ (the second term indicates the mean value of an attribute across $\Psi$)
+    \item $\Delta\hat{p_x} \equiv \hat{p_x} - \braket{\Psi | \hat{p_x} | \Psi}$
+\end{itemize}
+
+The $\braket{\Psi | (\Delta \hat{x})^2 |  \Psi} = \braket{\Psi | \hat{x}^2 | \Psi} - (\braket{\Psi | \hat{x} | \Psi})^2 = (\Delta x)^2$ is the variance of $x$.
+
+\vspace{10pt}
+
+The $\braket{\Psi | (\Delta \hat{p_x})^2 |  \Psi} = \braket{\Psi | \hat{p_x}^2 | \Psi} - (\braket{\Psi | \hat{p_x} | \Psi})^2 = (\Delta p_x)^2$ is the variance of $p_x$.
+
+\vspace{10pt}
+
+The result is that $(\Delta x)^2(\Delta p_x)^2 \geq \frac{1}{4} |\braket{\Psi | [\hat{x}, \hat{p_x}] |\Psi}|^2$. If they commute, the uncertanty can reach 0. Only in this case.
+
+Which leads to Heisenberg's uncertanty principle: $\Delta x\Delta p_x \geq \frac{\hbar}{2}$
+
+\subsection{[X] Probability current density}
+
+\paragraph{Charge case:}
+
+$$\rho(\vec{x}, t) \text{ conserved } \rightarrow \vec{J}(\vec{x}, t)$$
+%
+They satisfy the continuity equation: 
+$$\frac{\partial \rho(\vec{x}, t)}{\partial t} = -\vec{\nabla} \vec{J} (\vec{x}, t)$$
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.4\textwidth]{../images/logo.png}
+    \caption{Diagram of the continuity equation and charge conservation}
+    \label{fig:cont_eq}
+\end{figure}
+
+\paragraph{General case:} In general if there's the conservation of "mass" or whatever is moving, the continuity equation is satisfied.
+
+\paragraph{QM case:} We have a $\rho(\vec{x}, t) = |\Psi(\vec{x}, t)|^2$, so what is the probability corresponding to the $J(\vec{x}, t)$?
+\\\\
+From $i\hbar \frac{\partial}{\partial t}\Psi = H\Psi$ we take the conjugate $i\hbar \frac{\partial}{\partial t}\Psi^* = H\Psi^*$
+\\\\
+Which we use to obtain the equivalent of $\rho$ which is: $\frac{\partial}{\partial t}\rho \equiv \frac{\partial}{\partial t} |\Psi|^2 = \frac{\partial}{\partial t}\Psi^*\Psi = (\frac{\partial \Psi^*}{\partial t})\Psi + \Psi^* \frac{\partial \Psi}{\partial t} = -\frac{1}{i\hbar}(H\Psi^*)\Psi + \Psi^*(\frac{1}{i\hbar} H \Psi)$
+\\\\
+Assuming that $H = \frac{\hat{\vec{p}}^2}{2m} + V(\vec{x})$, we can finally obtain the result substituting H in the equation.
+$$\frac{\partial \rho}{\partial t} = \frac{\hbar}{2mi}[\Psi \nabla^2 \Psi^* - \Psi^*\nabla^2\Psi] + \frac{\hbar}{2mi}[\vec{\nabla}\Psi \vec{\nabla}\Psi^* - \vec{\nabla}\Psi \vec{\nabla}\Psi^*]$$
+The second term of the right term equals to 0, we add it just to rewrite it and combining it in a more fancy way. "We just use it to make it more cute" [Francesca].
+
+$$\frac{\partial \rho}{\partial t} \equiv \frac{\hbar}{2mi}\vec{\nabla}(\Psi\vec{\nabla}\Psi^* - \Psi^*\vec{\nabla}\Psi) \equiv -\vec{\nabla}\vec{J}$$
+with $\vec{J} = \frac{\hbar}{2mi} (\Psi^*\vec{\nabla}\Psi - \Psi\vec{\nabla}\Psi^*)$
+
+\subsection{[$\checkmark$] 1D potential barrier (Dispense UCCIRATI)}
+
+\subsubsection{Revised}
+\paragraph{Conditions:}
+
+\begin{itemize}
+    \item $\Psi$ and $\Psi'$ continous to avoid infinite spikes in $\Psi'$ and $\Psi''$. Imposed by: $\Psi_{L}(a) = \Psi_{R}(a)$ and $\Psi'_{L}(a) = \Psi'_{R}(a)$
+    \item Potential of region I = 0
+    \item Potential of region II = V
+\end{itemize}
+
+\paragraph{Cases:}
+
+\begin{itemize}
+    \item $E > V_0$
+    \item $E < V_0$
+\end{itemize}
+
+C'è la continuazione ma non la seguo. Una cosa che fa in più è il controllo se effettivamente il risultato ottenuto è un'onda nella forma di una autofunzione. $\hat{p}Ae^{ikx} = -i\hbar \frac{\partial}{\partial x} A e^{ikx} = -i\hbar (ik) Ae^{ikx} = + \hbar kAe^{ikx}$ this confirms that the function found is an eigen function, since the function remains the same, just scaled by a real factor.
+
+The demonstration goes on by imposing the conditions to the test functions. obtaining the amount of particles reflected and how many can get through. Given an A you can obtain B/A and C/A.
+
+\vspace{10pt}
+
+Magari disegnino della funzione prima e dopo la barriera?
+
+\vspace{10pt}
+
+Viene fatto un confronto in cui la soluzione è usata come $\Psi$ dentro all'equazione, questa è nella regione I e poi ci sarà l'equivalente ma per la regione II: $J = \frac{\hbar}{2mi}(\Psi^* \frac{\partial}{\partial x}\Psi - \Psi \frac{\partial}{\partial x}\Psi^*) = \frac{\hbar}{2mi}ik\left[ 2|A|^2 - 2|B|^2 \right] = \frac{\hbar k}{m} \left[ |A|^2 - |B|^2 \right]$, where the term with the A is the $J_{in}$ and the B is the $J_{refl}$. Finally computing the trasmitted we obtain for C the $J_{trans}$.
+
+There will be also the case where the energy of the wave will be greater than the potential energy. This means that the reflected amount goes nearly to 0, while transmission to 1.
+
+In the classical example it will be ALWAYS true or false, while in QM it's a range of possibilities.
+
+And when the energy is less then the potential it might penetrate a little (n/g) but it will always be reflected at the end.

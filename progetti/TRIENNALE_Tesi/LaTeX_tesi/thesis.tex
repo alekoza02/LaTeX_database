@@ -1,0 +1,61 @@
+\documentclass[12pt]{report} % \documentclass[12pt, demo]{report} -> speed up (no image load)
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[a4paper, top=2cm, bottom=2cm, right=2cm, left=3.5cm]{geometry}
+\usepackage{pdfpages}
+\usepackage{setspace}
+\onehalfspacing
+
+\begin{document}
+
+% ufficiale
+% \includepdf[pages={1}]{./frontespizio.pdf}
+
+% personale
+\includepdf[pages={1,2}]{./frontespizio.pdf}
+
+\newpage
+
+\section*{Acknowledgements}
+
+\noindent This work has been made possible thanks to Andrea Giura, the first to embrace my unconventional ideas and have faith in my ability to bring this project to life.
+\vspace{10pt}
+
+\noindent I am deeply grateful to Prof.ssa Domenica Scarano for her invaluable guidance throughout this incredible journey.
+\vspace{10pt}
+
+\noindent Heartfelt thanks also go to the wonderful people at INRiM who supported me and made me feel part of a team. Special appreciation is to Dr. Luigi Ribotta for teaching me how to correctly approach such a difficult job and for helping me to express myself, to Jessica Petiti for helping me improve my hands-on skills in the lab, and to Sabrina Caria, whose constant positivity brightened the office.
+\vspace{10pt}
+
+\noindent I would also like to thank Francesca Capellino, who supported me over the past three years and kept me focused on my studies. Without her, I might still be preparing for some exams.
+
+\pagenumbering{Roman}
+\setcounter{page}{0}
+\tableofcontents
+
+\pagenumbering{arabic}
+\setcounter{page}{0}
+\newpage
+
+\include{./capitoli/introduction}
+\include{./capitoli/afm_details}
+\include{./capitoli/structure_generation}
+\include{./capitoli/structure_fitting}
+\include{./capitoli/tip_reconstruction}
+\include{./capitoli/conclusions}
+
+\fontsize{10}{12}\selectfont
+
+\bibliographystyle{unsrt}
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{thesis}  
+
+\end{document}
+
+
+% L'impaginazione dopo la correzione
+% citazione bipiramidi e nanosheets

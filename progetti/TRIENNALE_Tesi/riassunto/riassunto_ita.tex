@@ -1,0 +1,80 @@
+\documentclass[12pt]{report}
+
+\begin{document}
+
+\title{Riassunto tesi}
+\author{Ale}
+
+\maketitle
+
+\section{INRiM}
+
+Buongiorno, questo lavoro si basa sul tirocinio che ho svolto presso l'istituto nazionale di ricerca metrologica. Per la precisione ho lavorato sotto la supervisione del Dr. Luigi Ribotta alla sezione delle lunghezze e nanometrologia. Tra le diverse strumentazioni presenti, io ho avuto modo di usare il microscopio a forza atomica, abbrevviato ad AFM, e sviluppare un programma per la ricostruzione della punta di questo strumento e l'aumento delle risoluzione delle topografie analizzate.
+
+\section{AFM}
+
+l'AFM è uno strumento fondamentale per la nanometrologia, dal momento che è in grado di restituire topografie con migliore risoluzione in altezza in assoluto. 
+
+Come funziona? In breve il cuore dello strumento è la punta che sonda il campione. Questa punta oscilla e sfrutta diversi tipi di forze deboli in base alla modalità in cui opera. Questa punta è attaccata ad un cantilever, che è un supporto riflettente con il compito di riflettere un fascio laser verso un fotodiodo. Il fotodiodo andrà a trasformare la posizione dove colpisce il laser in una variazione di altezza. La diversa posizione di impatto dipenderà dall'inclinazione della punta nel seguire il campione. Portandoci così ad avere una topografia del campione.
+
+\section{Studio della punta - Perchè?}
+
+Questo significa che la punta ha un ruolo molto importante. Quello che andiamo in realtà a valutare però è l'apice della punta, che nelle punte commerciali moderne arriva ad essere attorno agli 8nm di diametro. Questa è una dimensione estremamente piccola, soprattutto quando si vanno a misurare campioni nell'ordine di grandezza dei $\mu$m. Quando però analizziamo campioni alla nanoscala, questa dimensione comincia a disturbare, introducendo errori nella risoluzione laterale della topografia. È per questo che è importante studiare la forma della punta: per cercare di eliminare questo disturbo provocato dal semplice fatto che la punta ha un suo ingombro fisico. Questo porterà benefici sia nel campo dimensionale (ovvero si riuscirà a risolvere con maggiore accuratezza la geometria del campione) sia nel campo meccanico (ovvero si riuscirà a determinare meglio parametri come il modulo di Young di un campione conoscendo la geometria che sta andando a testare queste proprietà).
+
+\section{Studio della punta - Come?}
+
+Come possiamo studiare la forma della punta? Molte persone si sono già poste questa domanda e sono state proposte diverse soluzioni, che si dividono principalmente in 2 categorie: Ex-situ e In-situ. Quelle Ex-situ sfruttano uno strumento esterno come per esempio il SEM per ottenere delle immagini della punta. Quelle In-situ invece sfruttano diversi modelli matematici per fare la stessa cosa. In questo tirocinio mi sono concentrato sullo studio dei tip characterizers, per la precisione i KNOWN tip characterizers, che si basano sul conoscere alcune caratteristiche del campione ed estrapolare dalla topografia analizzata la forma della punta.
+
+\section{Limitazioni del metodo}
+
+È importante però ricordare che questi metodi aumentano la risoluzione laterale del campione, ma non possono risolvere i seguenti casi dove la punta non è fisicamente in grado di raggiungere il campione: questi metodi eliminano dalla misurazione l'ingombro della punta, ma la premessa è che la misurazione del campione in quel determinato punto dev'esser stata effettuata.
+
+\section{Riassunto fasi del codice}
+
+Questo è un riassunto delle fasi di cui consiste il programma che ho scritto. Si parte dal riconoscimento delle varie nanoparticelle presenti nell'immagine e l'estrazione di varie informazioni come posizione, orientamento e dimensione.
+
+Le informazioni estratte combinate con conoscenze a priori del campione, come per esempio la dimensione nominale, la forma o la struttura cristallografica, ci permettono di ricostruire una topografia che chiamiamo ideale, dal momento che questa sarà una topografia in cui non è presente l'influenza della punta.
+
+Con le 2 topografie (reale e ideale) ricostruiamo la punta e con successivamente eliminiamo il suo ingombro dalla topografia originale (deconvoluzione), ottenendo così l'immagine a risoluzione più alta.
+
+\section{1 - Posizionamento NP}
+
+Una volta che otteniamo le varie informazioni sulle nanoparticelle presenti nel campione generiamo dei modelli che saranno la loro replica ideale. Questo processo lo possiamo eseguire per tutte le nanoparticelle presenti, posizionando nello spazio tutti i modelli generati. A questo punto però abbiamo una replica del campione in formato digitale, ma questo è ancora composto da triangoli e modelli, noi invece abbiamo bisogno di una topografia, ovvero una matrice bidimensionale di altezze. Per convertire i modelli in topografia useremo una tecnica chiamata: Raytracer.
+
+\section{2 - Raytracer}
+
+Questa tecnica si basa sullo studiare il comportamento di raggi digitali e vedere come intereagiscono con i modelli presenti. Nel nostro caso, studiamo la distanza che al massimo il raggio riesce a percorrere prima di colpire un modello. La differenza tra l'altezza arbitraria a cui è posizionata la camera e la distanza percorsa dal raggio ci restituirà l'altezza del campione in quel punto. Questa azione può essere ripetuta per tutti i punti della topografia, trasformando così i modelli in una matrice di altezze.
+
+Il vantaggio di questa tecnica è la larghezza infinitesimale dei raggi, che permettono quindi di avere una risoluzione virtualmente infinta, simulando quello che "vedrebbe" un AFM se avesse una punta a delta di Dirac, ovvero l'equivalente di una punta monoatomica.
+
+\section{3 - Ricostruzione punta}
+
+Questo lavoro è basato su nanoparticelle sferiche, che è il case-study di questa tesi. Le nanosfere sono fatte d'oro, e sono un materiale di riferimento prodotto al NIST, mentre per esempio le bipiramidi di prima sono di ossido di titanio, che un candidate material da essere usato in futuro come materiale di riferimento. 
+
+Bene, abbiamo 2 topografie dello stesso campione, una reale e una ideale. Ora dobbiamo ottenere la punta. Per farlo esiste un modello matematico chiamato Erosione che è uno delle varianti della famiglia dei filtri morfologici. Applicando quindi questo operatore alla topografia reale usando come struttura la topografia ideale otteniamo la geometria della punta.
+
+\section{Dettaglio ricostruzione con erosion}
+
+Più nel dettaglio questo operatore fa "scivolare" una superficie al di sotto di un'altra restituendo il luogo dei punti dove la differenza delle due altezze è minime. Ovvero il punto più alto in cui si può posizionare la superficie sotto senza avere compenetrazione con la superficie sopra.
+
+\section{4 - Deconvoluzione immagine}
+
+Ottenuta la punta possiamo rieseguire la stessa operazione ma invertendo i termini: Per ottenere l'immagine deconvoluta (ovvero l'immagine con solo l'effetto del campione) dovremo eseguire l'erosione della topografia reale con la punta ricostruita. 
+
+\section{Dettaglio deconvoluzione con erosion}
+
+Anche in questo caso si fa scivolare una superficie: la punta ricostruita, sotto la topografia originale eliminando quindi la sua influenza, lasciandoci solo il campione analizzato e migliorando la risoluzione laterale della misurazione.
+
+\section{Conclusione}
+
+Per ricapitolare quindi il tirocinio è consistito nello scrivere un programma in Python per il riconoscimento di nanosfere data una topografia ottenuta all'AFM, simulare la topografia ideale partendo dalle nanoparticelle usando il raytracer, ricostruire la punta utilizzando il filtro morfologico e infine aumentare la risoluzione dell'immagine sfruttando la punta appena ricostruita. 
+
+Questo lavoro può essere ovviamente migliorato e integrato aggiungendo il supporto di riconoscimento di altre tipe di particelle (al di fuori delle nanosfere). Questo perchè per ora il programma può simulare qualunque modello di qualunque particella, ma non è ancora di riconoscere tutte queste strutture autonomamente.
+
+\section{Lavori pubblicati}
+
+Questo lavoro inoltre è stato protagonista di 2 pubblicazioni: una come rapporto tecnico dell'INRiM sulle funzionalità del programma, e una come tema del poster che ha vinto il premio di miglior poster alla ELENAM summer school, dando a tutti la motivazione per portare a termine questo interessantissimo lavoro sul quale ho avuto la possibilità di lavorare.
+
+Grazie per l'attenzione.
+
+\end{document}
