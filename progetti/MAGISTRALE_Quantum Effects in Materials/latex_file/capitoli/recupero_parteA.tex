@@ -404,7 +404,11 @@ Vogliamo sapere quante più cose possibili sul momento angolare, quindi sapendo 
 Definiamo quindi un auto-stato $\ket{\beta, m}$ che avrà come autovalori $\beta$ per $\vec{L}^2$ e $m$ per $L_z$:
 $$\vec{L}^2 \ket{\beta, m} = \hbar^2\beta\ket{\beta, m}$$
 $$L_z \ket{\beta, m} = \hbar m\ket{\beta, m}$$
-Il motivo per cui abbiamo aggiunto le diverse $\hbar$ è solo per una questione di analisi dimensionale, dal momento che $\beta$ e $m$ sono semplicemente 2 numeri reali puri.
+\textbf{MOLTO IMPORTANTE:} Nota che c'è una grossa differenza, questi $\beta, m$ sono due identificativi di uno stato che sarà un autostato sia di $L^2$ che di $L_z$, possiamo cominciare a calcolare quanto valgono, ma per comodità in futuro otterremo il valore di $\beta$ come funzione di $m$, o meglio, funzione di $m_{max} = l$. Per comodità quindi ci riferiremo all'autovalore di $L^2$ con $l$.
+	
+\vspace{15pt}
+
+\noindent Il motivo per cui abbiamo aggiunto le diverse $\hbar$ è solo per una questione di analisi dimensionale, dal momento che $\beta$ e $m$ sono semplicemente 2 numeri reali puri.
 Dobbiamo inoltre assicurarci che il tutto sia normalizzato, e questo si può imporre:
 $$\braket{\beta, m|\beta', m'} = \delta_{\beta\beta'}\delta_{mm'}$$
 Ora, noi dobbiamo cercare di definire il meglio possibile questo set base, ed è difficile non usando nient'altro se non gli strumenti che abbiamo a disposizione, per questo introduciamo 2 nuovi operatori. Più avanti scopriremo che si chiamano \textit{Ladder operators}, ma per ora li definiamo solo come una combinazione di componenti X e Y:
@@ -442,32 +446,334 @@ Questo ci permette di ottenere $L_z$ in tutte le possibili suddivisioni dell'ene
 Il motivo per cui ci possiamo spostare solo di intervalli di $\hbar$ è dovuto al fatto che i commutatori ci dicono così. Un modo più intuitivo di vederlo è immaginarsi di avere un vettore in 3D le cui componenti possono essere SOLO dei numeri interi. Se vogliamo aumentare o diminuire di 1 il valore della componente Z dovremo adeguare di conseguenza X e Y. Questo lo possiamo fare a patto che seguiamo 2 regole: Tutte le variazioni devono essere numeri interi e il modulo totale del vettore deve rimanere invariato.
 
 \subsection{Derivazione di $\beta$ e $m$}
-Possiamo inanzitutto trovare una relazione tra questi 2 parametri notando che abbiamo da questa espressione:
+Possiamo inanzitutto trovare una relazione tra questi 2 autovalori notando che da questa espressione abbiamo:
 $$\braket{\beta, m | \vec{L}^2 | \beta, m} = \braket{\beta, m | L_x^2 | \beta, m} + \braket{\beta, m | L_y^2 | \beta, m} + \braket{\beta, m | L_z^2 | \beta, m} $$
-Sappiamo che $L^2 \propto \hbar^2 \beta$, mentre $L_z^2 \propto \hbar^2 m^2$. Se consideriamo che che sia $L^2_x$ che $L^2_y$ saranno $\geq 0$, otteniamo la seguente relazione tra $\beta$ e $m$:
+Sappiamo che $L^2 \propto \hbar^2 \beta$, mentre $L_z^2 \propto \hbar^2 m^2$. Se consideriamo che che sia $L^2_x$ che $L^2_y$ saranno $\geq 0$, otteniamo la seguente relazione tra gli autovalori di {$\beta$} e {$m$}:
 $$\beta \geq m^2 \geq 0$$
 Questo significa che questo $m$ sarà limitato ad essere compreso tra 2 valori:
 $$m_{min} = k, \text{ } m_{max} = l$$
-Ora che abbiamo introdotto il ladder operator, proviamo ad applicarlo ad entrambi $\vec{L}^2$ e $L_z$ e vediamo che:
-$$\vec{L}^2 (L_+\ket{\beta, m}) = L_+\vec{L^2}$$
+Ora che abbiamo introdotto il ladder operator, proviamo ad applicarlo al sistema per scoprire come agiscono, quanto valgono e se il sistema rimane un autostato di $\vec{L}^2$ e di $L_z$:
+
+\begin{itemize}
+	\item $\vec{L}^2$, prima di tutto scambiamo l'ordine (tanto commutano). Poi, sappiamo quanto vale l'autovalore di $\vec{L}^2 \rightarrow \hbar^2\beta$ $\circledcirc \_ \circledcirc$, quindi scambiando l'ordine abbiamo la possibilità di applicare subito $\vec{L}^2$ e in questo modo avere il ket moltiplicato solo per il ladder operator.
+	$$\vec{L}^2 (L_+\ket{\beta, m}) = L_+\vec{L^2} \ket{\beta, m} = \hbar^2 \beta (L_+\ket{\beta, m})$$
+	Questo ci dà informazioni sul fatto che l'operatore agendo lascia l'autostato in un autostato e che ha autovalore pari a $\hbar ^ 2\beta$.
+	\item $L_z$, vogliamo fare la stessa cosa, ma $[L_z, L_{\pm}] = \pm \hbar L_{\pm}$, quindi il risultato sarà:
+	$$L_z(L_+\ket{\beta, m})$$
+	$$([L_z, L_+] + L_+L_z)\ket{\beta, m}$$
+	$$\hbar L_+\ket{\beta, m} + L_+(L_z\ket{\beta, m})$$
+	$$\hbar L_+\ket{\beta, m} + L_+\hbar m \ket{\beta, m}$$
+	$$\hbar L_+ (m+1) \ket{\beta, m} \rightarrow L_+\ket{\beta, m} \propto \ket{\beta, m + 1}$$
+\end{itemize}
+
+\noindent Abbiamo constatato che l'operatore ladder aumenta o diminuisce di 1 l'autovalore $m$ restituendoci ancora un autostato dell'operatore $L^2$ o $L_z$. Il fatto che possa anche diminuire viene fuori dai calcoli, qual'ora sostituissi il commutatore con il meno.
+
+Deriviamo inoltre un'importante limitazione: dato che $m$ non può essere $> l$, allora quando $m = l$:
+$$L_+\ket{\beta, l} = 0$$
+Un'altra considerazione da fare è che quando applichiamo $L_-$ dopo aver applicato $L_+$ allo stato più alto possibile $\ket{\beta, l}$ dovrà restuire 0 (piccola nota, qui non abbiamo usato direttamente la conseguenza del commutatore $\circledcirc \_ \circledcirc$, invece abbiamo sostituito $L^2_x + L^2_y$ con $L^2 - L^2_z$):
+$$0 = L_-L_+\ket{\beta, l} = (\vec{L}^2 -\hbar L_z -L^2_z)\ket{\beta, l}$$
+Conoscendo però gli autovalori corrispondenti ad $L^2$ e $L_z$ otteniamo:
+$$\hbar^2 (\beta - l - l^2) \ket{\beta, l}$$
+Scoprendo quindi che la relazione che c'è tra $\beta$ e $m$ è:
+$$\beta = l(l+1) \text{, dove } l = m_{max}$$
+Facendo la stessa identica cosa, ma sull'estremo inferiore otteniamo la stessa relazione ma con $k = m_{min}$:
+$$\beta = k(k-1)\text{, dove } k=m_{min}$$
+Comparando i risultati è chiaro che  $k = -l$. Inoltre, sapendo che i ladder operator modificano di 1 gli autovalori ogni volta che agiscono, sappiamo che tutti i valori di $m$ saranno \textit{integer-spaced}, nel range che va da $[-l, l]$. Per sottostare a questa limitazione, allora $l$ dovrà essere un \textit{semi-integer}.
+
+\vspace{15pt}
+
+\noindent Se può servire, data una certa $l$, il numero di $m$ a tua disposizione seguirà la formula: $2l + 1$
+
+\vspace{15pt}
+
+\noindent Sapendo ora scrivere l'autovalore di $L_2$ in funzione del valore massimo che può esprimere l'autovalore di $L_z$, riscriveremo d'ora in avanti gli autostati in funzione di 2 nuovi termini:
+$$\vec{L}^2\ket{l, m} = \hbar^2 l(l+1)\ket{l, m}$$
+$$L_z\ket{l, m} = \hbar m\ket{l, m}$$
+
+\paragraph{Normalizzazione:}
+Un'ultima cosa che possiamo fare è calcolare il fattore di normalizzazione ogni volta che applichiamo il ladder operator, di fatto ci viene chiesto di calcolare $\braket{l, m | L^{\dagger}_{\pm}L_{pm}|l, m}$ che corrisponde a calcolare il $[L_+, L_-]$, ovvero il risultato del calcolo di $\beta$ con il valore massimo e il valore minimo:
+$$|C_{\pm}|^2 = \hbar^2[l(l+1) - m(m\pm 1)]$$
+Ottenendo il valore solo per $C_{\pm}$ uno ottiene che:
+$$L_{\pm}\ket{l, m} = \hbar\sqrt{l(l+1) - m(m\pm 1)}\ket{l, m\pm1}$$
 
 \subsection{Coordinate sferiche}
+
+Inanzitutto vediamo come le vecchie coordinate si trasformano in quelle nuove:
+
+
+\begin{minipage}{0.45\textwidth} % Larghezza prima colonna
+    \centering
+    \includegraphics[width=0.9\textwidth]{../images/Screenshot 2025-02-18 175342.png} 
+    \captionof{figure}{Sistema di riferimento polare}
+    \label{fig:polar}
+\end{minipage}
+\hfill % Separazione tra le due colonne
+\begin{minipage}{0.45\textwidth} % Larghezza seconda colonna
+    Posizione:
+	$$\left\{ \begin{array}{l}
+		x = r \sin(\theta)\cos(\varphi)\\
+		y = r \sin(\theta)\sin(\varphi)\\
+		z = r \cos(\theta)
+    \end{array} \right.$$
+	\vspace{15pt}
+	
+	\noindent Derivata della posizione:
+	$$\nabla = \vec{e}_r \frac{\partial}{\partial r} + \vec{e}_{\theta} \frac{1}{r}\frac{\partial}{\partial \theta} + \vec{e}_{\varphi} \frac{1}{r\sin(\theta)}\frac{\partial}{\partial \varphi}\\$$
+\end{minipage}
+
+\vspace{15pt}
+
+\noindent È utile definire un set di versori che rappresentano la direzione in cui le grandezze $\theta$, $\varphi$ e $r$ cambiano nel tempo. Ora sono combinazioni di seni e coseni. Se vuoi ripeterli li trovi a pagina 45 delle note. Per ora troviamo solo la soluzione alla conversione di $L_z$ in coordinate polari. 
+$$\bra{\theta, \varphi}L_z = \bra{\theta, \varphi}\vec{e}_z\vec{L} = -i\hbar \frac{\partial}{\partial \varphi} \bra{\theta, \varphi}$$
+Come possiamo notare, il risultato è l'applicazione della derivata alla coordinata Z in coordinate polari. Si può fare la stessa cosa per $L^2$, ma diventi scemo, quindi: RICORDA:
+$$\bra{\theta, \varphi}\vec{L}^2 = -\hbar^2 \left[\frac{1}{\sin(\theta)} \frac{\partial}{\partial \theta}\left(\sin(\theta) \frac{\partial}{\partial \theta}\right) + \frac{1}{\sin^2(\theta)} \frac{\partial^2}{\partial^2\varphi}\right]\bra{\theta, \varphi}$$
+\paragraph{Armoniche sferiche:}
+Si può rappresentare l'autostato $\ket{l, m}$ come funzioni $Y_{lm}(\theta, \varphi)$ in coordinate sferiche:
+$$\braket{\theta, \varphi | l, m} \equiv Y_{lm}(\theta, \phi) = \Theta(\theta)\Phi(\varphi)$$
+Nota come il risultato è un prodotto di funzioni, una solo in funzione di $\theta$, e l'altro solo in funzione di $\varphi$.
+
+\paragraph{Calcolo dei polinomi:} 
+Bene, abbiamo calcolato quanto valgono gli operatori in coordinate polari, sappiamo anche che l'autostato $\ket{l, m}$ si può rappresentare come $Y_{lm}$. Calcoliamo allora quanto valgono queste funzioni $Y_{lm}$ per i diversi autostati conoscendo il valore degli operatori.
+$$\braket{\theta, \varphi | L_z | l, m} = (\bra{\theta, \varphi}L_z)\ket{l, m} = \bra{\theta, \varphi}(L_z \ket{l, m})$$
+Dai calcoli prima abbiamo che:
+$$-i\hbar\frac{\partial}{\partial \varphi} \braket{\theta, \varphi|l, m} = \hbar m \braket{\theta, \varphi | l, m}$$
+Sostituendo con $Y_{lm}$ possiamo semplificare $\Theta(\theta)$ dal momento che non abbiamo nulla in funzione di $\theta$.
+$$-i\hbar\frac{\partial}{\partial \varphi} \cancel{\Theta(\theta)}\Phi(\varphi) = \hbar m \cancel{\Theta(\theta)}\Phi(\varphi)$$
+Quello che rimane è solo un'equazione differenziale, la cui soluzione è:
+$$\Phi(\varphi) = e^{im\varphi}$$
+BTW, per il futuro possiamo già calcolarci la derivata seconda e scoprire che la soluzione non è altro che la funzione stessa moltiplicata per un fattore:
+$$\frac{\partial^2 \Phi(\varphi)}{\partial \varphi^2} = -m^2\Phi (\varphi)$$
+Possiamo fare la stessa cosa, ma sostituendo le varie componenti di $L^2$ e non di $L_z$.
+Casino assurdo, la formula è mastodontica. Quello di buono che c'è da sapere è che da tutto quel casino possiamo estrarre il termini in $\Phi(\varphi)$ dal momento che sappiamo calcolare la sua derivata seconda, e non solo: possiamo semplificare il tutto rendendo l'equazione una sola funzione di $\Theta(\theta)$.
+
+\paragraph{Polinomi di Legendre:}
+Una cosa carina che ci viene detta più avanti è che 
+$$\Theta(\theta) = P^m_l\cos(\theta)$$
+Quindi abbiamo tutto per descrivere $Y_{lm}$:
+$$Y_{lm}(\theta, \varphi) = \Theta(\theta)\Phi(\varphi) \propto P^m_l\cos(\theta)e^{im\varphi}$$
+Esiste un fattore di normalizzazione che si ricava risolvendo sta bestia: SKIP.
+
+\paragraph{Parità: importante esame}
+Con la parità puoi calcolare i vari valori che ti vengono chiesti all'esame: 
+$$PY_{lm}(\theta, \varphi) = Y_{lm}(\pi - \theta, \pi + \varphi) = e^{im\pi}(-1)^{l+|m|} Y_{lm}(\theta, \varphi) = (-1)^lY_{lm}(\theta, \varphi)$$
+Actually, il modo per non sbagliare mai è seguire le seguenti regole (proprietà intellettuale di Cimma \& Capellino\texttrademark):
+\begin{itemize}
+	\item Se un termine dell'equazione ha dipendenza solo da $r$ allora $l=0, m=0$.
+	\item Se un termine non ha dipendenza di $\theta$ allora $l=0$.
+	\item Se un termine non ha dipendenza di $\varphi$ allora $m=0$.
+	\item Guarda ogni termine dell'equazione e calcola quanto vale il grado più alto del termine $\theta$ e $\varphi$, questo corrisponderà ad $l$ e $m$ rispettivamente.
+	$$\cos(\theta)\sin^2(\varphi) + \sin(\varphi) \rightarrow l=1, m=\pm2, \pm1$$
+	\item Se il termine con $\phi$ è un esponenziale complesso e non un seno, il termine di $m$ sarà solo del segno dell'esponente, sarà invece $\pm$ nel caso di un seno.
+	\item Nel caso tu abbia $\cos^2(\theta)$, $l$ varrà non solo 2 ma anche 0. Questo è dovuto a com'è scritta l'armonica in questo caso: ha anche un termine senza dipendenza da $\theta$.
+\end{itemize}
+
+\noindent Questo copre tutte le casistiche fino ad $l, m = 2, \pm2$.
 
 \section{Spin}
 
 \subsection{Stern-Gerlach}
+
+RICORDA: Quando dicono che lo strumento è allineato \textit{Along 'x' axis} significa che il CAMPO MAGNETICO è allineato lungo quell'asse, non lo strumento!
+
+\vspace{15pt}
+
+\noindent Cominciamo con l'introdurre che il campo magnetico esercita su particelle cariche come gli elettroni una forza pari a:
+$$F_z = -\frac{\partial}{\partial z}\left(-\vec{\mu}\cdot\vec{B}\right) = \mu_z\frac{\partial B(z)}{\partial z}$$
+$$\mu_z = \frac{e}{2m_e}L_z$$
+This way we can relate the $F_z \propto L_z$.
+
+\paragraph{Preambulo:}
+Se consideriamo un fascio di elementi con momento angolare 0, notiamo comunque uno splitting del raggio, questo ci suggerisce la presenza di un altro momento angolare legato a qualche altra caratteristica della particella: spin elettrone. Possiamo assumere che si comporta esattamente come il momento angolare classico, e quindi, varranno le seguenti proprietà (consideriamo $s$ con il valore più piccolo possibile $\frac{1}{2}$):
+$$\vec{S}^2 \rightarrow \hbar^2s(s+1) \rightarrow \frac{3}{4}\hbar^2$$
+$$S_z \rightarrow \pm \frac{\hbar}{2}$$
+
+\paragraph{Caso di apparati in successione:}
+
+Avviene un fenomeno interessante, se isoliamo il fascio allineato lungo $z_+$ e lo facciamo viaggiare attraverso un allineatore lungo x e di nuovo selezioniamo solo la direzione $x_+$ scopriremo con divertito stupore che facendolo ripassare in un allineatore z, si formeranno entrambi i raggi: $z_+, z_-$.
+È come se una volta che passano in un magnete orientato diversamente si allineassero lungo quell'asse, ma ogni spin con direzione diversa. Il motivo per cui sono presenti entrambi gli spin, è perchè la direzione iniziale era perpendicolare, quindi per cambiare di nuovo asse hanno il $50\%$ di probabilità di capitare girati in sù o in giù.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{../images/Screenshot 2025-02-19 125717.png} 
+	\caption{Stern - Gerlach apparati in successione}
+	\label{fig:stern}
+\end{figure}
+
 \subsection{Teoria}
+
+Dato che abbiamo capito che possono esistere al massimo due stati diversi, per comodità li rappresenteremo come:
+$$\left| \frac{1}{2}, \frac{1}{2} \right> \equiv \ket{+}$$
+$$\left| \frac{1}{2}, -\frac{1}{2} \right> \equiv \ket{-}$$
+Questo significa che per rappresentare TUTTI i possibili autostati legati allo spin possiamo usare:
+$$\ket{\pm} \rightarrow \vec{S}^2 \ket{\pm} = \hbar^2\frac{3}{4}\ket{\pm} \rightarrow \vec{S}_z \ket{\pm} = \pm \hbar \frac{1}{2} \ket{\pm}$$
+
+\paragraph{Commutatori \& Ladder:}
+Stesse identiche formule, semplicemente il range di l e m sono ridotti notevolemente e cambiano nome in s e $m_s$.
+
+\paragraph{Matrici di Pauli:}
+Dal momento che possiamo avere solo due situazioni, in cui abbiamo o lo stato + o lo stato -, possiamo rappresentare più facilmente e comodamente tutti i calcoli con vettori e matrici:
+$$\ket{+} \equiv \left(\begin{array}{c}
+	1 \\
+	0 \\
+\end{array}\right) \text{ and }
+\ket{-} \equiv \left(\begin{array}{c}
+	0 \\
+	1 \\
+\end{array}\right)$$
+Questo ci viene molto comodo, dal momento che possiamo rappresentare tutti i possibili stati in maniera estremamente compatta: Rappresentiamo gli operatori lungo le varie direzioni $xyz$ andando semplicemente a calcolare l'effetto che provoca l'applicazione dell'operatore su un autostato e riportando il suo autovalore. Di fatto quello che abbiamo fatto è stato creare una 'look-up table' che ci permette di trovare il giusto autovaloro dato un autostato e la matrice dell'operatore associata.
+
+Possiamo inoltre interpretare ogni colonna come l'autostato in cui finirà uno spin dopo aver applicato l'operatore considerato (prima colonna spin +, seconda colonna spin -).
+Riscrivendo le matrici di Pauli (ricorda, c'è sempre un fattore moltiplicativo di $\frac{\hbar}{2}$):
+$$\sigma_x = \left(\begin{array}{lr}
+	0 & 1\\	
+	1 & 0\\	
+\end{array}\right),
+\sigma_y = \left(\begin{array}{lr}
+	0 & -i\\	
+	i & 0\\	
+\end{array}\right),
+\sigma_z = \left(\begin{array}{lr}
+	1 & 0\\	
+	0 & -1\\	
+\end{array}\right),$$
+Quindi, ora sappiamo cosa succede ad uno spin quando lo misuriamo lungo un asse diverso dal suo originario. La misura stessa però introduce nel sistema dell'eenrgia / perturbazione, (chiamala come vuoi) che andrà a destabilizzare il sistema al punto che la probabilità di trovare la particella orientata in una direzione o l'altra si è completamente resettata.
+
+Qualunque stato di spin può essere scritto come combinazione lineare di stati $\ket{+}$ e $\ket{-}$. Quanto più lo spin "assomiglierà" come direzionalità ad un asse, più sarà probabile che mantenga il suo stato di spin.
+
 \subsection{Gyromagnetic factor / MRI}
+Di importante c'è da dire che il fattore giromagnetico è determinato dalla somma degli effetti del momento magnetico orbitale e di quello di spin:
+$$\mu = \mu_{orbit} + \mu_{spin}$$
+$$\mu = \frac{e}{2m_e} (L + 2S), \text{ dove } 2 = g$$
+$$S = \frac{\hbar}{2}\sigma \rightarrow \mu_{tot} = -\frac{|e|\hbar}{2m_e}\left(\frac{L}{\hbar}+\sigma\right)$$
+Se ti ricordi the \textit{Bohr magneton}, meglio:
+$$\mu_B = \frac{|e|\hbar}{2m_e}$$
+
+\paragraph{MRI cose importanti:} Quando inserisci uno spin lungo una generica direzione $n$ dentro ad un campo magnetico orientato lungo un asse, lo spin comincierà a girare attorno a quell'asse. Ora, se calcoli S lungo lo stesso asse, non ti cambia nulla, avrai solo lo spin che gira, ma la misura di per se non cambia. D'altro canto, se misuri lungo un altro asse allora si avrà una componente che cambia nel tempo modificando le probabilità di trovare spin up o down. Ecco la formula per ricavare questa frequenza chiamata \textit{Larmor Frequency}:
+$$\omega_L = \frac{g|e|B_0}{2m}$$
 
 \section{Somma di 2 spin}
+
+Quello che vogliamo fare ora è vedere se riusciamo a calcolare come 2 spin si sommano tra loro (intereagiscono) e vedere quante più cosa possiamo sapere contemporaneamente su di essi.
+Per iniziare possiamo dire che per un sistema di 2 elettroni avremo che il generico stato di spin sarà la combinazione lineare di:
+$$\ket{s_1,m_{s1};s_2,m_{s2}} = \left\{\ket{++}, \ket{+-}, \ket{-+}, \ket{--}\right\}$$
+Dove 1 è riferito al primo elettrone, mentre 2 al secondo. Il problema è che questo base non descrive efficientemente questo stato. Il problema è dovuto al fatto che $\vec{S}^2$ commuta con $S_z = S_{1z} + S_{2z}$, ma non con i singoli termi individualmente. Questo significa che se il sistema si trova in uno degli stati sopra elencati, potremmo non conoscere lo spin totale, dal momento che questi stati individualmente non sono autostati di $\vec{S}^2$ (solo la loro combinazione è un autostato).
+
+Ecco perchè ripartiamo per l'ennesima volta dalla formula:
+$$\vec{S}^2 \ket{S, M} = \hbar^2S(S+1)\ket{S, M}, \text{ e } S_z\ket{S,M} = \hbar M\ket{S,M}$$
+Applicando quindi l'operatore $S_z$ per esempio ai diversi stati vediamo che:
+$$\begin{array}{l}
+	S_z\ket{++} = (S_{1z} \ket{+}) \ket{+} + \ket{+} (S_{2z}\ket{+}) = \hbar\ket{++}\\\\
+	S_z\ket{--} = (S_{1z} \ket{-}) \ket{-} + \ket{-} (S_{2z}\ket{-}) = -\hbar\ket{++}\\\\
+	S_z\ket{+-} = (S_{1z} \ket{+}) \ket{-} + \ket{+} (S_{2z}\ket{-}) = 0\\\\
+	S_z\ket{-+} = (S_{1z} \ket{-}) \ket{+} + \ket{-} (S_{2z}\ket{+}) = 0\\\\
+\end{array}$$
+Per spiegare cosa succede, ricorda che ogni operatore agisce solo sulla sua componente (1 solo su 1 e 2 solo su 2), quindi dato che $S_z = S_{1z} + S_{2z}$ abbiamo questo risultato. Gli 0 li otteniamo perchè otteniamo esattamente lo stesso risultato ma di segno opposto, di fatto annullandosi.	
+
+Applicando le stesse identiche formule, possiamo anche calcolare quanto vale $L_2$, lo farò? No.
+L'unica cosa effettivamente importante è che da tutti questi calcoli viene fuori che l'autovalore sono 1 nel caso di $\ket{++}$ e -1 per $\ket{--}$ ($\vec{S}^2 \ket{++} = 2\hbar^2\ket{++}$). Questo ci dice che il valore massimo (S) sarà 1, mentre (M) varierà tra -1 e 1. 
+Sapendo perà che il numero di $M$ che dovremmo trovare è $= 2S + 1 = 3$, applichiamo il ladder operator ottenendo lo stato $\ket{1,0}$. Noi però siamo partiti con 4 equazioni, ma abbiamo solo 3 soluzioni per ora. Dobbiamo trovare un altro stato ancora ortonormale ai primi 2: invertendo 
+$$\ket{1, 0} = \frac{1}{\sqrt{2}}\left(\ket{+-} + \ket{-+}\right)$$
+Otteniamo:
+$$\ket{0, 0} = \frac{1}{\sqrt{2}}\left(\ket{+-} - \ket{-+}\right)$$
+Questi identificano le varie combinazioni che noi conosciamo come singoletto, doppietto e tripletto.
+
 \section{Somma di spin con momento angolare}
+
+Ora invece proviamo a calcolare il momento angolare tot. dello spin sommando lo spin dell'elettrone con il momento angolare dell'orbitale:
+$$\vec{J} = \vec{S} + \vec{L}$$
+Questo ci porta ad avere un autostato bestiale:
+$$\ket{l,m;s,m_s} = \left\{\ket{l,m;\frac{1}{2},\frac{1}{2}}, \ket{l,m;\frac{1}{2},-\frac{1}{2}}\right\} = \left\{\ket{l,m,+}, \ket{l, m, -}\right\}$$
+Dato che abbiamo dei problemi a quanto pare, RICALCOLIAMO PER LA 4° VOLTA LA STESSA IDENTICA COSA PER $J^2$ E $J_z$ YIPPIE:
+$$\vec{J}^2 = (\vec{S}^2 + \vec{L}^2)$$
+$$J_z = S_z + L_z$$
+$$\ket{J, M}$$
+Come al solito partiamo con il calcolare $J_z$ e $\vec{J}^2$ partendo dallo stato più alto possibile:
+$$J_z\ket{l,l,+} = \left(L_z \ket{l,l}\right)\ket{+} + \ket{l,l}(S_z\ket{+})=\hbar\left(l+\frac{1}{2}\ket{l,l,+}\right)$$
+Questo risultato è dato dal fatto che ogni operatore opera solo sulla sua parte, il risultato è la somma di tutto, abbiamo quindi che $L_z$ ci dà come risultato $\hbar l$, mentre $S_z$ dà $\frac{\hbar}{2}$.
+Nel caso di $\vec{J}^2$ è leggermente più complesso (la parte con gli operatori è la trasformazione da $L = L_x + L_y + L_z$ in $L_z + L_{\pm}$):
+$$\vec{J}^2\ket{l,l,+} = \left(\vec{L}^2 + \vec{S}^2 + {2L_zS_z + L_-S_+ + L_+S_-}\right)\ket{l,l,+}$$
+Ora, fortunatamente questi termini con il ladder vanno a 0, perchè per entrambi gli operatori siamo in un estremo :)
+
+Applicando invece gli operatori rimasti, abbiamo una parte uguale al risultato di $J_z$, più l'altra derivante dai termini quadri:
+$$\vec{J}^2 = \hbar^2(l+1/2)(l+3/2)\ket{l,l,+}$$
+Risolvendo per $l$ otteniamo che gli autovalori $J$ e $L$ sono entrambi $l + 1/2$. Per ottenere gli altri possibili stati applichiamo il ladder operator a manetta finchè non esauriamo tutte le soluzioni.
+$$J_-\ket{l,l,+} = \ket{l,l}\left(S_-\ket{+}\right) + \left(L_-\ket{l,l}\right)\ket{+} = \hbar\ket{l,l,-} + \hbar\sqrt{l(l+1) - l(l-1)  \ket{l,l-1,+}}$$
+Basta, il resto non è importante. Puoi continuare ad applicare il ladder operator.
+
 \section{Perturbation theory (NON - DEGENERATE)}
+
+Equazione principale di questo capitolo:
+$$H = H_0 + \lambda H_1, \text{ con } \lambda \ll 1$$
+Partiamo dal fatto che l'Hamiltoniana non perturbata è definita come:
+$$H_0\ket{n^{(0)}} = E_n^{(0)}\ket{n^{(0)}}, \text{ dove } \braket{n^{(0)}|m^{(0)}} = \delta_{mn}$$
+Noi vogliamo trovare gli \textit{energy levels} e funzioni d'onda che soddisfino:
+$$H\ket{n} = E_n\ket{n}, \text{ dove } \braket{n|m} = \delta_{mn}$$
+\paragraph{Come facciamo? Espansione:}
+$$
+\begin{array}{l}
+	\mathcal{O}(\lambda^0): H_0\ket{n^{(0)}} = E_n^{(0)}\ket{n^{(0)}}\\
+	\mathcal{O}(\lambda^1): H_0\ket{n^{(1)}} + H_1\ket{n^{(0)}} = E_n^{(0)}\ket{n^{(1)}} + E_n^{(1)}\ket{n^{(0)}}
+\end{array}
+$$
+Il motivo per cui l'espansione procede in questo modo è perchè i termini più "importanti" ovvero $H_0$ agisce sul grado più alto considerato, mentre la perturbazione agisce sullo stato già calcolato di livello più basso: quello che succede è applicare la piccola perturbazione sullo stato già conosciuto e applicare l'hamiltoniana base conosciuta sul nuovo stato che quindi ora avrà anche il nuovo contributo.
+$$\braket{n^{(0)}|H_0|n^{(1)}} + \braket{n^{(0)}|H_1|n^{(0)}} = \braket{n^{(0)}|E_n^{(0)}|n^{(1)}} + \braket{n^{(0)}|E_n^{(1)}|n^{(0)}}$$
+$$\cancel{E_n^{(0)}\braket{n^{(0)}|n^{(1)}}} + \braket{n^{(0)}|H_1|n^{(0)}} = \cancel{E_n^{(0)}\braket{n^{(0)}|n^{(1)}}} + E_n^{(1)} \braket{n^{(0)}|n^{(0)}}$$
+Otteniamo quindi in questo modo l'energia associata alla perturbazione:
+$$E_n^{(1)} = \braket{n^{(0)}|H_1|n^{(0)}}$$
+\paragraph{IMPORTANTE:} Ricorda che puoi riscrivere sempre lo stato $\ket{n^{(1)}}$ come combinazione lineare:
+$$\ket{n^{(1)}} = \sum_{j \neq n} c_{nj}\ket{j^{(0)}}$$
+Esiste una dimostrazione (pagina 63) che ci permette di calcolare $c_{nl}$ in funzione dei dati in nostro possesso:
+$$c_{nl} = \frac{\braket{l^{(0)}|H_1|n^{(0)}}}{E_n^{(0)}-E_l^{(0)}}$$
+Quindi ora possiamo riscrivere l'autostato come:
+$$\ket{n^{(0)}} = \sum_{j \neq n} \frac{\braket{l^{(0)}|H_1|n^{(0)}}}{E_n^{(0)}-E_l^{(0)}} \ket{j^{(0)}}$$
+TADA, l'unico motivo per cui questo è considerato un caso non degenere è perchè assumiamo che il denominatore è $\neq 0$, ovvero $E_n^{(0)} \neq E_l^{(0)}$, il caso degenere invece considera il caso in cui i due termini siano uguali.
+
 \section{Zeeman normale}
+Quando avevamo parlato del Gyromagnetic factor, avevamo accennato a quanto valesse l'effetto del momento magnetico nell'elettrone. Ora vediamo che questo effetto torna qui per descrivere come viene pertrubato il sistema:
+$$H = \underbrace{-\frac{\hbar^2 \nabla^2}{2m_e} - \frac{e^2}{4\pi\epsilon_0 r}}_{\equiv H_0} + \frac{\mu_B}{\hbar} B L_z$$
+Questo contributo lo possiamo considerare molto piccolo nel caso di campi magnetici estremamente piccoli. Quello che succede è che abbiamo uno splitting dei livelli energetici in base alla $l$ dell'orbitale preso in considerazione:
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{../images/Screenshot 2025-02-21 165431.png}
+	\caption{Zeeman effect: level splitting}
+	\label{fig:zeeman_normal}
+\end{figure}
+
+Io me spiego che la presenza delle varie suddivisioni è legata alla quantità di energia intrinseca presente dentro all'orbitale: più energia è presente e più questa può suddividersi e generare livelli diversi (degeneri).
+
+La spaziatura dei livelli energitici qui è costante, dato che l'unica dipendenza che c'è è quella legata ad $l$, ed $l$ ha intervalli regolari. Per conoscere il valore dell'energia, usa la formula:
+$$E_{n,m} = -\frac{E_0}{n^2}+ \hbar\omega_Lm$$
+$$\Delta E = \hbar\omega_L$$
+
 \section{Relativistic correction}
+
+Questa si basa sul considerare che l'elettrone si muove a velocità estremamente elevate, al punto da subire l'effetto relativistico del suo movimento. Ecco che alla Hamiltoniana aggiungiamo l'energia relativa:
+$$E = \sqrt{\vec{p}^2c^2 + m_e^2c^4} = \underbrace{m_ec^2 + \frac{\vec{p}^2}{2m_e}}_{H_0} \underbrace{- \frac{1}{8}\frac{(\vec{p^2})^2}{m_e^3c^2}}_{H_1} + ...$$
+Puoi quindi fare il calcolo per ottenere il valore del nuovo stato:
+$$\braket{n,l,m|H_1|n,l,m}$$
+
 \section{Interazione: Spin - orbita}
-\section{Zeemano anomalous}
-\section{Gauge invarianza}
-\section{Couloumb invarianza}
-\section{Magnetic properties}
-\section{Landau levels}
-\section{Quantum Hall effect}
+Imma be honest, non ho capito 'na mazza...
+
+\section{Zeeman anomalous}
+Somma di tutti gli effetti visti fino ad ora, modificano l'effetto Zeeman, andando ad ottenere delle suddivisioni più ricche:
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{../images/Screenshot 2025-02-21 192037.png}
+	\caption{Anomalous Zeeman}
+	\label{fig:anomalous_zeeman}
+\end{figure}
+
+L'importante è notare come le suddivisioni tra i livelli non sono costanti:
+\begin{itemize}
+	\item per $l+1/2$ abbiamo una distanza maggiore, dovuta da una somma costruttiva di termini (nell'anomalous ci sono termini dipendenti dai numeri quantici e altri no). Se tutti i termini sono costruttivi ci si allontana di più generando gap più grandi.
+	\item Oppure ci sono termini che si scontrano (positivi e negativi), andando ad interferire e non generando dei gap così grandi.
+\end{itemize}
+
+% \section{Gauge invarianza}
+% \section{Couloumb invarianza}
+% \section{Magnetic properties}
+% \section{Landau levels}
+% \section{Quantum Hall effect}
