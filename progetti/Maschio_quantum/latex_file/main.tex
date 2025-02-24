@@ -9,6 +9,10 @@
 \usepackage{caption}
 \usepackage{svg}
 
+\usepackage{hyperref}
+\captionsetup[figure]{hypcap=false}  % disabilita hypcap per figure
+\captionsetup[table]{hypcap=false}
+
 \setcounter{page}{0}
 
 % \geometry{
@@ -32,16 +36,23 @@
 \section{Functionals (theory)}
 
 Since there are many ways to calculate the informations of molecules and crystals, many functionals exist.
-The way they work are different, based on different approaches in reaching the same goals.
-The main difference lies in the usage of a correct approach to approximate the Hamiltonian. 
+The way they work are different, based on different approaches for reaching the same goals.
+The main difference lies in how the Hamiltonian is approximated. 
  
-The functionals used during this project where the following, with a brief explanation on each method:
+The functionals used during this project where the following, with a brief explanation of each method:
 \begin{itemize}
 	\item Hartree - Fock (HF): Basic functional, calculates very well the exchange energy but the correlation energy is not considered. Computationally expensive.
 	\item PBE: More advanced approach, uses the Gradient Generalized Approximation (GGA). It's extremely fast, but tends to over-delocalize electronic densities, leading to inaccuracies in exchange-correlation interactions.
-	\item PBE0 - D3: Hybrid functional between PBE and HF (25\%), takes the best of both worlds, considering but correlation-exchange energies. Since it has an HF part, computationally expensive.
+	\item PBE0 - D3: Hybrid functional between PBE and HF (25\%), takes the best of both worlds, considering correctly correlation-exchange energies. Since it has an HF part, it is computationally expensive.
 	\item SVWN: Advanced approach. Considers both exchange and correlation energies. In this work it has been tested against the others to evaluate its performance. 
 \end{itemize}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{../images/crystal.png} 
+	\caption{Crystalline structure of $CeO_2$ (100), obtained from CRYSPLOT}
+	\label{fig:crystal_ce02}
+\end{figure}
 
 \newpage
 \section{Objectives \& Computational Set-up}
@@ -267,7 +278,7 @@ As mentioned before, the HF functional has the biggest computational requirement
 		\toprule
 		 & PBE0-D3 & PBE & SVWN & HF \\
 		\midrule
-		TCPU & 1864.71 & 334.54 & 770.92 & 2857.84 \\
+		TCPU [s] & 1864.71 & 334.54 & 770.92 & 2857.84 \\
 	\end{tabular}	
 	\caption{Time needed for calculations across different functionals}
 	\label{tab:TCPU}
@@ -276,7 +287,7 @@ As mentioned before, the HF functional has the biggest computational requirement
 \newpage
 \section{Band Structure}
 
-We can see from the plots that the \textbf{HF} functional (Fig.\ref{fig:bands_HF}) places the conduction bands extremely above the Fermi Energy, confirming the expected overestimated band gap. The other functionals as well did not approach the theoretical result ($\sim$3.9 eV). The best band gap evaluation has been performed by \textbf{PBE0-D3} (Fig.\ref{fig:bands_PBE0D3}), with a difference of $\sim$0.2 eV from the reference value.
+From the following plots it is noticeable that the \textbf{HF} functional (Fig.\ref{fig:bands_HF}) places the conduction bands extremely above the Fermi Energy, confirming the expected overestimated band gap. The other functionals as well did not approach the theoretical result ($\sim$3.9 eV). The best band gap evaluation has been performed by \textbf{PBE0-D3} (Fig.\ref{fig:bands_PBE0D3}), with a difference of $\sim$0.2 eV from the reference value.
 
 \vspace{15pt}
 
@@ -383,7 +394,7 @@ For a more effective interpretation of the energy levels, here are reported the 
 \newpage
 \section{Charge Density (Difference)}
 
-By calculating che charge density difference, we obtain very similar results across different functionals. In Fig.\ref{fig:CHARGE_HF} observing the red ring in $Ce$, it is possible to notice a homogeneous charge distribution, leading to a smoother area. Conversely, in Fig.\ref{fig:CHARGE_PBE}, the same red ring is much more sharper. This difference may be attributed to the type of functional:
+By calculating che charge density difference, very similar results are obtained across different functionals. In Fig.\ref{fig:CHARGE_HF} observing the red ring in $Ce$, it is possible to notice a homogeneous charge distribution, leading to a smoother area. Conversely, in Fig.\ref{fig:CHARGE_PBE}, the same red ring is much more sharper. This difference may be attributed to the type of functional:
 \begin{itemize}
 	\item \textbf{Smoother}: HF $\rightarrow$ Delocalized atoms, leading to a bigger interaction and overlap.
 	\item \textbf{Sharper}: PBE $\rightarrow$ Localized atoms and smaller overlap, might be the reason behind this stronger directionality. 
@@ -472,14 +483,105 @@ In this work 4 different functionals were used, here's a brief overview:
 
 \noindent The best functional (given the results), would be the \textbf{PBE0-D3}, a very good solution for different properties. However, to obtain a fast execution time and generally a good accuracy, \textbf{SVWN} has the best trade-off between speed and accuracy.
 
+\newpage
 \section{Appendix}
 
-\begin{minipage}[t]{0.45\textwidth}
-    \textbf{vibrational\_input.d12}
-    
+In the following pages are reported all the input files used. They all refer to the \textbf{SVWN} functional.
+
+\vspace{20pt}
+
+\noindent\begin{minipage}[t]{0.45\textwidth}
+    \textbf{main\_input.d12}
     \vspace{15pt}
+	\\CeO2
+	\\CRYSTAL
+	\\0 0 0 
+	\\225
+	\\5.47
+	\\2
+	\\258 0 0 0
+	\\8 0.25 0.75 0.75
+	\\OPTGEOM
+	\\END
+	\\END
+	\\\%\% BASIS SET START \%\%
+	\\Ce\_pob\_TZVP\_rev2
+	\\O\_pob\_TZVP\_rev2
+	\\\%\% BASIS SET END \%\%
+	\\99 0
+	\\END
+	\\DFT
+	\\SVWN
+	\\END
+	\\SHRINK
+	\\8 8
+	\\MULPOPAN
+	\\END
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+    \textbf{CHARGE\_DIFFERENCE.d3}
+    \vspace{15pt}
+	\\ECHG
+	\\0
+	\\100
+	\\COORDINA
+	\\-4. -4. 0.0
+	\\4. -4. 0.0
+	\\4. 4. 0.0
+	\\MARGINS
+	\\2.0 2.0 2.0 2.0
+	\\END
+	\\PATO
+	\\0 0
+	\\ECHG
+	\\0
+	\\100
+	\\COORDINA
+	\\-4. -4. 0.0
+	\\4. -4. 0.0
+	\\4. 4. 0.0
+	\\MARGINS
+	\\2.0 2.0 2.0 2.0
+	\\END
+	\\END
+\end{minipage}
+
+\vspace{20pt}
+
+\noindent\begin{minipage}[t]{0.45\textwidth}
+    \textbf{BAND.d3}
+    \vspace{15pt}
+	\\BAND
+	\\Path G X L G
+	\\3 8 120 15 53 1 0
+	\\0 0 0   4 0 4
+	\\4 0 4   4 4 4
+	\\4 4 4   0 0 0
+	\\END
     
-    CeO2
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+	\textbf{DOS.d3}
+	\vspace{15pt}
+	\\NEWK
+	\\8 8
+	\\1 0
+	\\DOSS
+	\\3 200 15 53 1 14 0
+	\\3   72 73 74
+	\\5   36 37 38 39 40
+	\\7   55 56 57 58 59 60 61
+	\\END
+\end{minipage}
+
+\begin{minipage}[t]{0.45\textwidth}
+	\textbf{vibrational\_input.d12}
+	
+	\vspace{15pt}
+	
+	CeO2
 	\\CRYSTAL
 	\\0 0 0 
 	\\225
@@ -491,10 +593,10 @@ In this work 4 different functionals were used, here's a brief overview:
 	\\INTENS
 	\\END
 	\\END
-	\\\#\#\#\#\# BASIS SET START \#\#\#\#\#
+	\\\%\% BASIS SET START \%\%
 	\\Ce\_pob\_TZVP\_rev2
 	\\O\_pob\_TZVP\_rev2
-	\\\#\#\#\#\# BASIS SET END \#\#\#\#\#
+	\\\%\% BASIS SET END \%\%
 	\\99 0
 	\\END
 	\\DFT
@@ -508,11 +610,11 @@ In this work 4 different functionals were used, here's a brief overview:
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.45\textwidth}
-    \textbf{vibrational\_input\_restart.d12}
-    
-    \vspace{15pt}
-    
-    CeO2
+	\textbf{vibrational\_input\_restart.d12}
+	
+	\vspace{15pt}
+	
+	CeO2
 	\\CRYSTAL
 	\\0 0 0 
 	\\225
@@ -527,10 +629,10 @@ In this work 4 different functionals were used, here's a brief overview:
 	\\END
 	\\END
 	\\END
-	\\\#\#\#\#\# BASIS SET START \#\#\#\#\#
+	\\\%\% BASIS SET START \%\%
 	\\Ce\_pob\_TZVP\_rev2
 	\\O\_pob\_TZVP\_rev2
-	\\\#\#\#\#\# BASIS SET END \#\#\#\#\#
+	\\\%\% BASIS SET END \%\%
 	\\99 0
 	\\END
 	\\DFT

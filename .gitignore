@@ -11,6 +11,8 @@
 *.fls
 *(busy)
 *_svg-tex*
+*blg
+*out
 
 # Ignore Office data
 ~*
